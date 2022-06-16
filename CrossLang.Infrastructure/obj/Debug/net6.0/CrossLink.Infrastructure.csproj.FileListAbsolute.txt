@@ -1,0 +1,5 @@
+D:\Classes\Thesis\cross-link-server\CrossLink.Infrastructure\obj\Debug\net6.0\CrossLink.Infrastructure.csproj.AssemblyReference.cache
+D:\Classes\Thesis\cross-link-server\CrossLink.Infrastructure\obj\Debug\net6.0\CrossLink.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\Classes\Thesis\cross-link-server\CrossLink.Infrastructure\obj\Debug\net6.0\CrossLink.Infrastructure.AssemblyInfoInputs.cache
+D:\Classes\Thesis\cross-link-server\CrossLink.Infrastructure\obj\Debug\net6.0\CrossLink.Infrastructure.AssemblyInfo.cs
+D:\Classes\Thesis\cross-link-server\CrossLink.Infrastructure\obj\Debug\net6.0\CrossLink.Infrastructure.csproj.CoreCompileInputs.cache

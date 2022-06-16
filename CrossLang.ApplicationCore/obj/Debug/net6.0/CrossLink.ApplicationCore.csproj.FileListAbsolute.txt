@@ -1,0 +1,7 @@
+D:\Classes\Thesis\cross-link-server\CrossLink.ApplicationCore\obj\Debug\net6.0\CrossLink.ApplicationCore.csproj.AssemblyReference.cache
+D:\Classes\Thesis\cross-link-server\CrossLink.ApplicationCore\obj\Debug\net6.0\CrossLink.ApplicationCore.Properties.Resources.resources
+D:\Classes\Thesis\cross-link-server\CrossLink.ApplicationCore\obj\Debug\net6.0\CrossLink.ApplicationCore.csproj.GenerateResource.cache
+D:\Classes\Thesis\cross-link-server\CrossLink.ApplicationCore\obj\Debug\net6.0\CrossLink.ApplicationCore.GeneratedMSBuildEditorConfig.editorconfig
+D:\Classes\Thesis\cross-link-server\CrossLink.ApplicationCore\obj\Debug\net6.0\CrossLink.ApplicationCore.AssemblyInfoInputs.cache
+D:\Classes\Thesis\cross-link-server\CrossLink.ApplicationCore\obj\Debug\net6.0\CrossLink.ApplicationCore.AssemblyInfo.cs
+D:\Classes\Thesis\cross-link-server\CrossLink.ApplicationCore\obj\Debug\net6.0\CrossLink.ApplicationCore.csproj.CoreCompileInputs.cache

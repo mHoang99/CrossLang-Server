@@ -1,0 +1,12 @@
+D:\Classes\Thesis\CrossLang\cross-lang-server\CrossLang.Entity\bin\Debug\net6.0\CrossLang.Model.deps.json
+D:\Classes\Thesis\CrossLang\cross-lang-server\CrossLang.Entity\bin\Debug\net6.0\CrossLang.Model.dll
+D:\Classes\Thesis\CrossLang\cross-lang-server\CrossLang.Entity\bin\Debug\net6.0\CrossLang.Model.pdb
+D:\Classes\Thesis\CrossLang\cross-lang-server\CrossLang.Entity\obj\Debug\net6.0\CrossLang.Model.csproj.AssemblyReference.cache
+D:\Classes\Thesis\CrossLang\cross-lang-server\CrossLang.Entity\obj\Debug\net6.0\CrossLang.Model.GeneratedMSBuildEditorConfig.editorconfig
+D:\Classes\Thesis\CrossLang\cross-lang-server\CrossLang.Entity\obj\Debug\net6.0\CrossLang.Model.AssemblyInfoInputs.cache
+D:\Classes\Thesis\CrossLang\cross-lang-server\CrossLang.Entity\obj\Debug\net6.0\CrossLang.Model.AssemblyInfo.cs
+D:\Classes\Thesis\CrossLang\cross-lang-server\CrossLang.Entity\obj\Debug\net6.0\CrossLang.Model.csproj.CoreCompileInputs.cache
+D:\Classes\Thesis\CrossLang\cross-lang-server\CrossLang.Entity\obj\Debug\net6.0\CrossLang.Model.dll
+D:\Classes\Thesis\CrossLang\cross-lang-server\CrossLang.Entity\obj\Debug\net6.0\refint\CrossLang.Model.dll
+D:\Classes\Thesis\CrossLang\cross-lang-server\CrossLang.Entity\obj\Debug\net6.0\CrossLang.Model.pdb
+D:\Classes\Thesis\CrossLang\cross-lang-server\CrossLang.Entity\obj\Debug\net6.0\ref\CrossLang.Model.dll

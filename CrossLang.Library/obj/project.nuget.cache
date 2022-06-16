@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "dgSpecHash": "TdrE6VkKIJ1a2NMkEuxGiNfMNhF7YHtiveJefpJq2l7P4qGN6QjMc9Q8EpKiMhX2ACpqvRUPxPgXZ7EXeMjTIw==",
+  "success": true,
+  "projectFilePath": "/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.Library/CrossLang.Library.csproj",
+  "expectedPackageFiles": [
+    "/Users/mhoang/.nuget/packages/bcrypt.net-next/4.0.3/bcrypt.net-next.4.0.3.nupkg.sha512",
+    "/Users/mhoang/.nuget/packages/microsoft.aspnetcore.http.abstractions/2.2.0/microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
+    "/Users/mhoang/.nuget/packages/microsoft.aspnetcore.http.features/2.2.0/microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
+    "/Users/mhoang/.nuget/packages/microsoft.extensions.primitives/2.2.0/microsoft.extensions.primitives.2.2.0.nupkg.sha512",
+    "/Users/mhoang/.nuget/packages/newtonsoft.json/13.0.1/newtonsoft.json.13.0.1.nupkg.sha512",
+    "/Users/mhoang/.nuget/packages/system.memory/4.5.1/system.memory.4.5.1.nupkg.sha512",
+    "/Users/mhoang/.nuget/packages/system.runtime.compilerservices.unsafe/4.5.1/system.runtime.compilerservices.unsafe.4.5.1.nupkg.sha512",
+    "/Users/mhoang/.nuget/packages/system.text.encodings.web/4.5.0/system.text.encodings.web.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
