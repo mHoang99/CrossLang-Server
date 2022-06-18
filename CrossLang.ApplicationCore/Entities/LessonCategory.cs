@@ -4,11 +4,12 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CrossLang.Library;
 
 namespace CrossLang.ApplicationCore.Entities
 {
     [TableName("lesson_category")]
-    class LessonCategory : BaseEntity
+    public class LessonCategory : BaseEntity
     {
         [DBColumn]
         [MaxLength(255)]

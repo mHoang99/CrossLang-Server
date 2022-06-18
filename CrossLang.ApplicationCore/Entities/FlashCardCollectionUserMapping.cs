@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using CrossLang.Library;
 
 namespace CrossLang.ApplicationCore.Entities
 {

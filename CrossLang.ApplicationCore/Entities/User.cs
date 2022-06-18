@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using CrossLang.Library;
 
 namespace CrossLang.ApplicationCore.Entities
 {

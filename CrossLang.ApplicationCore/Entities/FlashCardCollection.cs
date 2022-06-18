@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CrossLang.Library;
 
 namespace CrossLang.ApplicationCore.Entities
 {
@@ -34,5 +35,14 @@ namespace CrossLang.ApplicationCore.Entities
         [DBColumn]
         [DisplayName("Đánh giá")]
         public float? Rating { get; set; }
+
+        [DBColumn]
+        [DisplayName("Bài học liên quan")]
+        public long? LessonID { get; set; }
+
+
+        [DBColumn]
+        [DisplayName("Số từ")]
+        public int? WordCount { get; set; }
     }
 }

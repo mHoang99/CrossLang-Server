@@ -14,7 +14,10 @@ namespace CrossLang.ApplicationCore.Services
         private IBaseRepository<FlashCardCollectionUserMapping> _flashCardCollectionUserMappingRepository;
         private IBaseService<FlashCardCollectionUserMapping> _flashCardCollectionUserMappingService;
 
-        public FlashCardCollectionService(IFlashCardCollectionRepository repository, IBaseRepository<FlashCardCollectionUserMapping> fccumRepository, IBaseService<FlashCardCollectionUserMapping> fccumService, IHttpContextAccessor httpContextAccessor, SessionData sessionData) : base(repository, httpContextAccessor, sessionData)
+        public FlashCardCollectionService(IFlashCardCollectionRepository repository,
+            IBaseRepository<FlashCardCollectionUserMapping> fccumRepository,
+            IBaseService<FlashCardCollectionUserMapping> fccumService,
+            IHttpContextAccessor httpContextAccessor, SessionData sessionData) : base(repository, httpContextAccessor, sessionData)
         {
             _flashCardCollectionUserMappingRepository = fccumRepository;
             _flashCardCollectionUserMappingService = fccumService;

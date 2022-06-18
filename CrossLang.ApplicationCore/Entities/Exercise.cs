@@ -1,4 +1,5 @@
 ﻿using CrossLang.ApplicationCore.Enums;
+using CrossLang.Library;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 namespace CrossLang.ApplicationCore.Entities
 {
     [TableName("exercise")]
-    class Exercise : BaseEntity
+    public class Exercise : BaseEntity
     {
         [DBColumn]
         [DisplayName("Tên")]
@@ -26,5 +27,7 @@ namespace CrossLang.ApplicationCore.Entities
         [DBColumn]
         [DisplayName("Có trộn")]
         public bool? IsShuffle { get; set; }
+
+        public List<QuestionMongo> Questions { get; set; }
     }
 }

@@ -50,6 +50,30 @@ namespace CrossLang.Library
         {
             return (T)Convert.ChangeType(input, typeof(T));
         }
+
+        public static string GetCollectionName(this Type type)
+        {
+            var collectionNameAttr = type.GetCustomAttributes(typeof(CollectionName), false);
+
+            if (collectionNameAttr == null || (CollectionName)collectionNameAttr[0] == null)
+            {
+                return "";
+            }
+
+            return ((CollectionName)collectionNameAttr[0]).Value;
+        }
+
+        public static string GetTableName(this Type type)
+        {
+            var tableNameAttr = type.GetCustomAttributes(typeof(TableName), false);
+
+            if (tableNameAttr == null || (TableName)tableNameAttr[0] == null)
+            {
+                return "";
+            }
+
+            return ((TableName)tableNameAttr[0])?.Value ?? "";
+        }
         #endregion
     }
 }

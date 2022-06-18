@@ -1,4 +1,6 @@
 ﻿using CrossLang.ApplicationCore.Enums;
+using CrossLang.Library;
+using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,116 +12,12 @@ using System.Threading.Tasks;
 
 namespace CrossLang.ApplicationCore.Entities
 {
-    /// <summary>
-    /// Class Attribute cho trường bắt buộc
-    /// </summary>
-    /// CREATEDBY: VMHOANG
-    [AttributeUsage(AttributeTargets.Property)]
-    public class Required : Attribute
-    {
-
-    }
-
-    /// <summary>
-    /// Class Attribute cho trường không được phép trùng
-    /// </summary>
-    /// CREATEDBY: VMHOANG
-    [AttributeUsage(AttributeTargets.Property)]
-    public class Unique : Attribute
-    {
-
-    }
-
-    /// <summary>
-    /// Class Attribute cho trường khóa chính
-    /// </summary>
-    /// CREATEDBY: VMHOANG
-    [AttributeUsage(AttributeTargets.Property)]
-    public class PrimaryKey : Attribute
-    {
-
-    }
-
-    /// <summary>
-    /// Class Attribute cho trường là email
-    /// </summary>
-    /// CREATEDBY: VMHOANG
-    [AttributeUsage(AttributeTargets.Property)]
-    public class Email : Attribute
-    {
-    }
-
-    /// <summary>
-    /// Class Attribute cho trường số điện thoại
-    /// </summary>
-    /// CREATEDBY: VMHOANG
-    [AttributeUsage(AttributeTargets.Property)]
-    public class PhoneNumber : Attribute
-    {
-
-    }
-
-    /// <summary>
-    /// Class đánh dấu các trường là cột của bảng
-    /// </summary>
-    /// CREATEDBY: VMHOANG
-    [AttributeUsage(AttributeTargets.Property)]
-    public class DBColumn : Attribute
-    {
-    }
-
-    /// <summary>
-    /// Class đánh dấu các trường là loại json
-    /// </summary>
-    /// CREATEDBY: VMHOANG
-    [AttributeUsage(AttributeTargets.Property)]
-    public class DBJSON : Attribute
-    {
-    }
-
-    /// <summary>
-    /// Class Attribute cho trường có độ dài tối đa
-    /// </summary>
-    /// CREATEDBY: VMHOANG
-    [AttributeUsage(AttributeTargets.Property)]
-    public class MaxLength : Attribute
-    {
-        #region Properties
-        public int Value { get; set; }
-        #endregion
-
-        #region Constructor
-        public MaxLength(int maxLength = 255)
-        {
-            this.Value = maxLength;
-        }
-        #endregion
-    }
-
-    /// <summary>
-    /// Class Attribute cho tên bảng
-    /// </summary>
-    /// CREATEDBY: VMHOANG
-    [AttributeUsage(AttributeTargets.Class)]
-    public class TableName : Attribute
-    {
-        #region Properties
-        public string Value { get; set; }
-        #endregion
-
-        #region Constructor
-        public TableName(string tableName = "")
-        {
-            this.Value = tableName;
-        }
-        #endregion
-    }
-
     [TableName("")]
     public class BaseEntity
     {
         #region Properties
         [JsonIgnore]
+        [BsonIgnore]
         public EntityState EntityState { get; set; } = EntityState.GET;
         /// <summary>
         /// Ngày tạo
@@ -152,17 +50,13 @@ namespace CrossLang.ApplicationCore.Entities
         [DisplayName("Người thay đổi")]
         [DBColumn]
         public string? ModifiedBy { get; set; }
-
-        /// <summary>
-        /// Tong so ban ghi
-        /// </summary>
-        public long? DBTotalCount { get; set; }
         #endregion
 
         #region Methods
         public static string BuildAddQueryStatic()
         {
-            var tableName = GetTableNameStatic();
+            var tableName = MethodBase.GetCurrentMethod()?
+                .DeclaringType.GetTableName() ?? "";
             var columns = GetDBColumnsStatic();
 
             var columnsString = string.Join(",", columns);
@@ -173,9 +67,10 @@ namespace CrossLang.ApplicationCore.Entities
 
         public static string BuildUpdateQueryStatic(List<string> columnsToUpdate = null, string whereClause = "")
         {
-            var tableName = GetTableNameStatic();
+            var tableName = MethodBase.GetCurrentMethod()?
+                .DeclaringType.GetTableName() ?? "";
 
-            if(columnsToUpdate == null)
+            if (columnsToUpdate == null)
             {
                 columnsToUpdate = GetDBColumnsStatic();
             }
@@ -200,16 +95,22 @@ namespace CrossLang.ApplicationCore.Entities
 
         public static string BuildDeleteQueryStatic(string whereClause = "1 = 1")
         {
-            var tableName = GetTableNameStatic();
+            var tableName = MethodBase.GetCurrentMethod()?
+                .DeclaringType.GetTableName() ?? "";
             return $"DELETE FROM {tableName} WHERE {whereClause}";
         }
 
         public static List<string> GetDBColumnsStatic()
         {
-            var properties = MethodBase.GetCurrentMethod()
-                .DeclaringType.GetProperties();
+            var properties = MethodBase.GetCurrentMethod()?
+                .DeclaringType?.GetProperties();
 
             var columns = new List<string>();
+
+            if (properties == null)
+            {
+                return columns;
+            }
 
             foreach (var property in properties)
             {
@@ -222,21 +123,6 @@ namespace CrossLang.ApplicationCore.Entities
 
             return columns;
         }
-
-        public static string GetTableNameStatic()
-        {
-            var tableNameAttr = MethodBase.GetCurrentMethod()
-                .DeclaringType
-                .GetCustomAttribute(typeof(TableName), false);
-
-            if (tableNameAttr == null || (TableName)tableNameAttr == null)
-            {
-                return "";
-            }
-
-            return ((TableName)tableNameAttr).Value;
-        }
-
 
         public string BuildAddQuery()
         {
@@ -316,7 +202,7 @@ namespace CrossLang.ApplicationCore.Entities
 
     public static class EntityExtensionMethod
     {
-        public static string  GetEntityTableName(this Type o)
+        public static string GetEntityTableName(this Type o)
         {
             var tableNameAttr = o.GetCustomAttribute(typeof(TableName), false);
 

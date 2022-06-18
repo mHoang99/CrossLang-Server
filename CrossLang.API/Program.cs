@@ -52,19 +52,33 @@ builder.Services.AddSingleton<AccessTokenGenerator>();
 builder.Services.AddSingleton<RefreshTokenGenerator>();
 builder.Services.AddSingleton<RefreshTokenValidator>();
 builder.Services.AddSingleton<SessionData>();
+
 builder.Services.AddScoped<IAuthService, AuthService>();
+
 builder.Services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
+builder.Services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
+
 builder.Services.AddScoped<IBaseService<DictionaryWord>, DictionaryWordService>();
 builder.Services.AddScoped<IDictionaryWordService, DictionaryWordService>();
-builder.Services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
-builder.Services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
-builder.Services.AddScoped<IBaseRepository<DictionaryWord>, DictionaryWordRepository>();
 builder.Services.AddScoped<IDictionaryWordRepository, DictionaryWordRepository>();
+builder.Services.AddScoped<IBaseRepository<DictionaryWord>, DictionaryWordRepository>();
+
+builder.Services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
+
 builder.Services.AddScoped<IFlashCardRepository, FlashCardRepository>();
-builder.Services.AddScoped<IFlashCardCollectionRepository, FlashCardCollectionRepository>();
 builder.Services.AddScoped<IFlashCardService, FlashCardService>();
+
+builder.Services.AddScoped<IFlashCardCollectionRepository, FlashCardCollectionRepository>();
 builder.Services.AddScoped<IFlashCardCollectionService, FlashCardCollectionService>();
+
+builder.Services.AddScoped<ILessonService, LessonService>();
+builder.Services.AddScoped<ILessonRepository, LessonRepository>();
+
+builder.Services.AddScoped<IExerciseService, ExerciseService>();
+builder.Services.AddScoped<IExerciseRepository, ExerciseRepository>();
+
 builder.Services.AddTransient<IDBContext, DBContext>();
+builder.Services.AddTransient<IMongoDBContext, MongoContext>();
 
 builder.Services.AddHttpContextAccessor();
 

@@ -218,15 +218,15 @@ namespace CrossLang.ApplicationCore
             }
         }
 
-        protected void AsyncAfterUpdate(T entity, T oldEntity)
+        protected virtual void AsyncAfterUpdate(T entity, T oldEntity)
         {
         }
 
-        protected void AfterUpdate(T entity, T oldEntity)
+        protected virtual void AfterUpdate(T entity, T oldEntity)
         {
         }
 
-        protected void BeforeUpdate(ref T entity, T oldEntity)
+        protected virtual void BeforeUpdate(ref T entity, T oldEntity)
         {
             entity.ModifiedDate = DateTime.Now;
         }
@@ -289,16 +289,16 @@ namespace CrossLang.ApplicationCore
             return true;
         }
 
-        protected void AsyncAfterDelete(T oldEntity)
+        protected virtual void AsyncAfterDelete(T oldEntity)
         {
 
         }
 
-        protected void AfterDelete(T oldEntity)
+        protected virtual void AfterDelete(T oldEntity)
         {
         }
 
-        protected void BeforeDelete(T oldEntity)
+        protected virtual void BeforeDelete(T oldEntity)
         {
         }
 

@@ -1,4 +1,5 @@
 ﻿using CrossLang.ApplicationCore.Enums;
+using CrossLang.Library;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 namespace CrossLang.ApplicationCore.Entities
 {
     [TableName("lesson")]
-    class Lesson: BaseEntity
+    public class Lesson: BaseEntity
     {
         [DBColumn]
         [MaxLength(255)]
@@ -26,13 +27,12 @@ namespace CrossLang.ApplicationCore.Entities
 
         [DBColumn]
         [DisplayName("Cấp độ của bài giảng")]
-        public LessonLevel Level { get; set; }
+        public LessonLevel? Level { get; set; }
 
         [DBColumn]
         [DisplayName("Link tài liệu")]
         public string? DocumentLinks { get; set; }
 
-        [DBColumn]
         [DisplayName("Nội dung HTML")]
         public string? Content { get; set; }
 
@@ -41,8 +41,11 @@ namespace CrossLang.ApplicationCore.Entities
         public long? LessonCategoryID { get; set; }
 
         [DBColumn]
-        [MaxLength(500)]
         [DisplayName("Thumbnail")]
         public string? Thumbnail { get; set; }
+
+        public List<string>? DictionaryWords { get; set; }
+
+        public List<long>? DictionaryWordIDs { get; set; }
     }
 }

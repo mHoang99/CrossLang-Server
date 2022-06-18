@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CrossLang.Library;
 
 namespace CrossLang.ApplicationCore.Entities
 {
@@ -24,5 +25,10 @@ namespace CrossLang.ApplicationCore.Entities
         [MaxLength(500)]
         [DBColumn]
         public string? Image { get; set; }
+
+
+        public long? FlashCardID { get; set; }
+
+        public long? FlashCardCollectionID { get; set; }
     }
 }

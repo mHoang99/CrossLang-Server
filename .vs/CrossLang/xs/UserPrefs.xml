@@ -1,61 +1,29 @@
 ﻿<Properties StartupConfiguration="{A73BA69A-4FBD-4CF1-AB10-4DB0C6B09E99}|Default" MonoDevelop.Ide.FileNesting.Enabled="True">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="CrossLang.API/Controllers/BaseApiController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CrossLang.ApplicationCore/Services/LessonService.cs">
     <Files>
-      <File FileName="CrossLang.API/Controllers/BaseApiController.cs" Line="45" Column="32" />
-      <File FileName="CrossLang.ApplicationCore/Interfaces/IService/IBaseService.cs" Line="59" Column="27" />
-      <File FileName="CrossLang.ApplicationCore/Services/BaseService.cs" Line="544" Column="42" />
-      <File FileName="CrossLang.ApplicationCore/Services/FlashCardService.cs" Line="30" Column="1" />
-      <File FileName="CrossLang.ApplicationCore/Services/FlashCardCollectionService.cs" Line="37" Column="111" />
-      <File FileName="CrossLang.ApplicationCore/Services/DictionaryWordService.cs" Line="58" Column="88" />
-      <File FileName="CrossLang.ApplicationCore/Interfaces/IRepository/IBaseRepository.cs" Line="71" Column="23" />
-      <File FileName="CrossLang.Infrastructure/BaseRepository.cs" Line="464" Column="1" />
-      <File FileName="CrossLang.Infrastructure/DictionaryWordRepository.cs" Line="36" Column="37" />
-      <File FileName="CrossLang.Infrastructure/FlashCardCollectionRepository.cs" Line="22" Column="31" />
-      <File FileName="CrossLang.ApplicationCore/Interfaces/IRepository/IFlashCardCollectionRepository.cs" Line="8" Column="42" />
-      <File FileName="CrossLang.API/Program.cs" Line="26" Column="29" />
-      <File FileName="CrossLang.API/Startup.cs" Line="78" Column="13" />
-      <File FileName="CrossLang.API/Properties/launchSettings.json" Line="1" Column="1" />
-      <File FileName="CrossLang.API/Properties/Resources.resx" Line="1" Column="1" />
-      <File FileName="CrossLang.API/appsettings.json" Line="21" Column="1" />
-      <File FileName="CrossLang.API/Middlewares/ErrorHandlerMiddleware.cs" Line="38" Column="1" />
-      <File FileName="CrossLang.API/Controllers/FlashCardCollectionProgressUserMappingController.cs" Line="16" Column="1" />
-      <File FileName="CrossLang.API/Controllers/FlashCardCollectionUserMappingController.cs" Line="14" Column="10" />
-      <File FileName="CrossLang.ApplicationCore/Entities/FlashCardCollectionProgressUserMapping.cs" Line="1" Column="1" />
-      <File FileName="CrossLang.ApplicationCore/Entities/FlashCardCollectionUserMapping.cs" Line="1" Column="1" />
-      <File FileName="CrossLang.ApplicationCore/Properties/Resources.resx" Line="160" Column="24" />
-      <File FileName="CrossLang.ApplicationCore/Properties/Resources.Designer.cs" Line="186" Column="85" />
-      <File FileName="CrossLang.API/Controllers/AuthController.cs" Line="148" Column="22" />
-      <File FileName="CrossLang.API/Controllers/DictionaryWordController.cs" Line="32" Column="10" />
-      <File FileName="CrossLang.API/Controllers/FlashCardCollectionController.cs" Line="29" Column="23" />
-      <File FileName="CrossLang.API/Controllers/FlashCardController.cs" Line="1" Column="1" />
-      <File FileName="CrossLang.API/Models/Requests/FilterRequest.cs" Line="1" Column="1" />
-      <File FileName="CrossLang.API/Models/Requests/MultipleAffectRequest.cs" Line="1" Column="1" />
-      <File FileName="CrossLang.API/Models/Requests/RefreshTokenRequest.cs" Line="1" Column="1" />
-      <File FileName="CrossLang.API/Models/Requests/SearchRequest.cs" Line="1" Column="1" />
-      <File FileName="CrossLang.API/Models/Requests/TimeRangeRequest.cs" Line="1" Column="1" />
-      <File FileName="CrossLang.ApplicationCore/Entities/BaseEntity.cs" Line="174" Column="84" />
-      <File FileName="CrossLang.ApplicationCore/Interfaces/IService/IAuthService.cs" Line="1" Column="1" />
-      <File FileName="CrossLang.ApplicationCore/Interfaces/IService/IDictionaryWordService.cs" Line="15" Column="35" />
-      <File FileName="CrossLang.ApplicationCore/Interfaces/IService/IFlashCardService.cs" Line="1" Column="1" />
-      <File FileName="CrossLang.ApplicationCore/Interfaces/IDBContext.cs" Line="1" Column="1" />
-      <File FileName="CrossLang.ApplicationCore/Interfaces/IService/IFlashCardCollectionService.cs" Line="1" Column="1" />
-      <File FileName="CrossLang.ApplicationCore/Interfaces/IRepository/IRefreshTokenRepository.cs" Line="17" Column="12" />
-      <File FileName="CrossLang.ApplicationCore/Interfaces/IRepository/IFlashCardRepository.cs" Line="1" Column="1" />
-      <File FileName="CrossLang.ApplicationCore/Interfaces/IRepository/IDictionaryWordRepository.cs" Line="12" Column="48" />
-      <File FileName="CrossLang.Infrastructure/RefreshTokenRepository.cs" Line="41" Column="36" />
-      <File FileName="CrossLang.Infrastructure/FlashCardRepository.cs" Line="1" Column="1" />
-      <File FileName="CrossLang.Authentication/Services/AuthService.cs" Line="54" Column="1" />
-      <File FileName="CrossLang.API/Models/Requests/UpdateFields.cs" Line="11" Column="1" />
+      <File FileName="CrossLang.ApplicationCore/Services/BaseService.cs" Line="463" Column="38" />
+      <File FileName="CrossLang.ApplicationCore/Services/LessonService.cs" Line="45" Column="41" />
+      <File FileName="CrossLang.ApplicationCore/Entities/Lesson.cs" Line="41" Column="38" />
+      <File FileName="CrossLang.Infrastructure/Database/MongoContext.cs" Line="22" Column="1" />
+      <File FileName="CrossLang.API/Controllers/BaseApiController.cs" Line="80" Column="42" />
+      <File FileName="CrossLang.ApplicationCore/Entities/LessonCategory.cs" Line="12" Column="12" />
+      <File FileName="CrossLang.API/Controllers/AuthController.cs" Line="58" Column="42" />
+      <File FileName="CrossLang.API/Controllers/LessonCategoryController.cs" Line="16" Column="1" />
+      <File FileName="CrossLang.ApplicationCore/Interfaces/IService/IBaseService.cs" Line="52" Column="31" />
+      <File FileName="CrossLang.Infrastructure/BaseRepository.cs" Line="293" Column="24" />
+      <File FileName="CrossLang.ApplicationCore/Enums/LessonEnum.cs" Line="14" Column="6" />
+      <File FileName="CrossLang.ApplicationCore/Services/DictionaryWordService.cs" Line="25" Column="62" />
+      <File FileName="CrossLang.ApplicationCore/Services/FlashCardCollectionService.cs" Line="64" Column="19" />
+      <File FileName="CrossLang.Infrastructure/LessonRepository.cs" Line="26" Column="41" />
+      <File FileName="CrossLang.ApplicationCore/Interfaces/IRepository/ILessonRepository.cs" Line="10" Column="53" NotebookId="1" />
+      <File FileName="CrossLang.ApplicationCore/Entities/LessonContentMongo.cs" Line="1" Column="1" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="CrossLang" expanded="True">
             <Node name="CrossLang.API" expanded="True">
-              <Node name="Controllers" expanded="True">
-                <Node name="BaseApiController.cs" selected="True" />
-              </Node>
+              <Node name="Controllers" expanded="True" />
               <Node name="Middlewares" expanded="True" />
               <Node name="Models" expanded="True">
                 <Node name="Requests" expanded="True" />
@@ -65,6 +33,7 @@
             <Node name="CrossLang.ApplicationCore" expanded="True">
               <Node name="Dependencies" expanded="True" />
               <Node name="Entities" expanded="True" />
+              <Node name="Enums" expanded="True" />
               <Node name="Interfaces" expanded="True">
                 <Node name="IRepository" expanded="True" />
                 <Node name="IService" expanded="True" />
@@ -81,6 +50,7 @@
               <Node name="Services" expanded="True" />
             </Node>
             <Node name="CrossLang.Infrastructure" expanded="True">
+              <Node name="Dependencies" expanded="True" />
               <Node name="Database" expanded="True" />
             </Node>
             <Node name="CrossLang.Library" expanded="True" />
@@ -97,14 +67,17 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.ItemProperties.CrossLang.API PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint enabled="false" file="/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.Library/SessionData.cs" relfile="CrossLang.Library/SessionData.cs" line="83" column="1" />
       <Breakpoint file="/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.ApplicationCore/Services/BaseService.cs" relfile="CrossLang.ApplicationCore/Services/BaseService.cs" line="522" column="1" />
       <Breakpoint file="/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.ApplicationCore/Services/FlashCardCollectionService.cs" relfile="CrossLang.ApplicationCore/Services/FlashCardCollectionService.cs" line="65" column="1" />
+      <Breakpoint file="/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.ApplicationCore/Services/LessonService.cs" relfile="CrossLang.ApplicationCore/Services/LessonService.cs" line="20" column="1" />
+      <Breakpoint file="/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.API/Controllers/BaseApiController.cs" relfile="CrossLang.API/Controllers/BaseApiController.cs" line="96" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

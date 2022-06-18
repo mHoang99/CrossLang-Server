@@ -8,11 +8,14 @@ namespace CrossLang.ApplicationCore.Enums
 {
     public enum ExerciseType
     {
-        A = 1
+        Lesson = 1,
+        External = 2
     }
 
     public enum QuestionType
     {
-        MultipleChoices = 1,
+        MultipleChoicesOne = 1,
+        MultipleChoicesMany = 2,
+        Fill = 3,
     }
 }
