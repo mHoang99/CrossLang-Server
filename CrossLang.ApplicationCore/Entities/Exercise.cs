@@ -28,6 +28,11 @@ namespace CrossLang.ApplicationCore.Entities
         [DisplayName("Có trộn")]
         public bool? IsShuffle { get; set; }
 
-        public List<QuestionMongo> Questions { get; set; }
+
+        [DBColumn]
+        [DisplayName("Có trộn")]
+        public long? LessonID { get; set; }
+
+        public List<QuestionMongo>? Questions { get; set; }
     }
 }

@@ -14,9 +14,25 @@ namespace CrossLang.ApplicationCore.Services
         public ExerciseService(IExerciseRepository repository, IHttpContextAccessor httpContextAccessor, SessionData sessionData) : base(repository, httpContextAccessor, sessionData)
         {
         }
+
+        protected override bool CustomValidate(Exercise entity, List<string>? fields)
+        {
+            return base.CustomValidate(entity, fields);
+        }
+
         protected override void AfterAdd(ref Exercise entity)
         {
             base.AfterAdd(ref entity);
+
+            if(entity.Questions == null)
+            {
+                return;
+            }
+
+            foreach (var question in entity.Questions)
+            {
+                question.ExerciseID = entity.ID;
+            }
 
             ((IExerciseRepository)_repository).InsertQuestionsMongo(entity.Questions);
         }

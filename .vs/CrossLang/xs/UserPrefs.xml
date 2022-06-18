@@ -1,22 +1,32 @@
 ﻿<Properties StartupConfiguration="{A73BA69A-4FBD-4CF1-AB10-4DB0C6B09E99}|Default" MonoDevelop.Ide.FileNesting.Enabled="True">
-  <MonoDevelop.Ide.Workbench ActiveDocument="CrossLang.ApplicationCore/Services/LessonService.cs">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint enabled="false" file="/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.Library/SessionData.cs" relfile="CrossLang.Library/SessionData.cs" line="83" column="1" />
+      <Breakpoint file="/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.ApplicationCore/Services/BaseService.cs" relfile="CrossLang.ApplicationCore/Services/BaseService.cs" line="522" column="1" />
+      <Breakpoint file="/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.ApplicationCore/Services/FlashCardCollectionService.cs" relfile="CrossLang.ApplicationCore/Services/FlashCardCollectionService.cs" line="68" column="1" />
+      <Breakpoint file="/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.ApplicationCore/Services/LessonService.cs" relfile="CrossLang.ApplicationCore/Services/LessonService.cs" line="49" column="1" />
+      <Breakpoint file="/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.ApplicationCore/Services/ExerciseService.cs" relfile="CrossLang.ApplicationCore/Services/ExerciseService.cs" line="37" column="1" />
+      <Breakpoint file="/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.ApplicationCore/Services/LessonService.cs" relfile="CrossLang.ApplicationCore/Services/LessonService.cs" line="37" column="1" />
+      <Breakpoint file="/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.Infrastructure/Database/MongoContext.cs" relfile="CrossLang.Infrastructure/Database/MongoContext.cs" line="22" column="4" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="CrossLang.ApplicationCore/Services/ExerciseService.cs">
     <Files>
-      <File FileName="CrossLang.ApplicationCore/Services/BaseService.cs" Line="463" Column="38" />
-      <File FileName="CrossLang.ApplicationCore/Services/LessonService.cs" Line="45" Column="41" />
-      <File FileName="CrossLang.ApplicationCore/Entities/Lesson.cs" Line="41" Column="38" />
-      <File FileName="CrossLang.Infrastructure/Database/MongoContext.cs" Line="22" Column="1" />
-      <File FileName="CrossLang.API/Controllers/BaseApiController.cs" Line="80" Column="42" />
-      <File FileName="CrossLang.ApplicationCore/Entities/LessonCategory.cs" Line="12" Column="12" />
-      <File FileName="CrossLang.API/Controllers/AuthController.cs" Line="58" Column="42" />
-      <File FileName="CrossLang.API/Controllers/LessonCategoryController.cs" Line="16" Column="1" />
-      <File FileName="CrossLang.ApplicationCore/Interfaces/IService/IBaseService.cs" Line="52" Column="31" />
-      <File FileName="CrossLang.Infrastructure/BaseRepository.cs" Line="293" Column="24" />
-      <File FileName="CrossLang.ApplicationCore/Enums/LessonEnum.cs" Line="14" Column="6" />
-      <File FileName="CrossLang.ApplicationCore/Services/DictionaryWordService.cs" Line="25" Column="62" />
-      <File FileName="CrossLang.ApplicationCore/Services/FlashCardCollectionService.cs" Line="64" Column="19" />
-      <File FileName="CrossLang.Infrastructure/LessonRepository.cs" Line="26" Column="41" />
-      <File FileName="CrossLang.ApplicationCore/Interfaces/IRepository/ILessonRepository.cs" Line="10" Column="53" NotebookId="1" />
-      <File FileName="CrossLang.ApplicationCore/Entities/LessonContentMongo.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="CrossLang.API/Program.cs" Line="78" Column="54" />
+      <File FileName="CrossLang.ApplicationCore/Entities/Exercise.cs" Line="39" Column="1" />
+      <File FileName="CrossLang.ApplicationCore/Entities/Question.cs" Line="1" Column="1" />
+      <File FileName="CrossLang.API/appsettings.json" Line="1" Column="1" />
+      <File FileName="CrossLang.API/Controllers/BaseApiController.cs" Line="96" Column="1" />
+      <File FileName="CrossLang.API/Middlewares/ErrorHandlerMiddleware.cs" Line="36" Column="1" />
+      <File FileName="CrossLang.Infrastructure/Database/MongoContext.cs" Line="24" Column="1" />
+      <File FileName="CrossLang.Library/CLHelper.cs" Line="64" Column="1" />
+      <File FileName="CrossLang.ApplicationCore/Entities/LessonContentMongo.cs" Line="20" Column="1" />
+      <File FileName="CrossLang.Infrastructure/LessonRepository.cs" Line="25" Column="1" />
+      <File FileName=".editorconfig" Line="1" Column="1" />
+      <File FileName="CrossLang.ApplicationCore/Properties/Resources.Designer.cs" Line="84" Column="32" />
+      <File FileName="CrossLang.ApplicationCore/Properties/Resources.resx" Line="141" Column="58" />
+      <File FileName="CrossLang.ApplicationCore/Services/ExerciseService.cs" Line="20" Column="13" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -25,10 +35,6 @@
             <Node name="CrossLang.API" expanded="True">
               <Node name="Controllers" expanded="True" />
               <Node name="Middlewares" expanded="True" />
-              <Node name="Models" expanded="True">
-                <Node name="Requests" expanded="True" />
-              </Node>
-              <Node name="Properties" expanded="True" />
             </Node>
             <Node name="CrossLang.ApplicationCore" expanded="True">
               <Node name="Dependencies" expanded="True" />
@@ -39,14 +45,6 @@
                 <Node name="IService" expanded="True" />
               </Node>
               <Node name="Properties" expanded="True" />
-              <Node name="Services" expanded="True" />
-            </Node>
-            <Node name="CrossLang.Authentication" expanded="True">
-              <Node name="JWT" expanded="True">
-                <Node name="Generators" expanded="True" />
-                <Node name="Validators" expanded="True" />
-              </Node>
-              <Node name="Models" expanded="True" />
               <Node name="Services" expanded="True" />
             </Node>
             <Node name="CrossLang.Infrastructure" expanded="True">
@@ -67,17 +65,7 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.CrossLang.API PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint enabled="false" file="/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.Library/SessionData.cs" relfile="CrossLang.Library/SessionData.cs" line="83" column="1" />
-      <Breakpoint file="/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.ApplicationCore/Services/BaseService.cs" relfile="CrossLang.ApplicationCore/Services/BaseService.cs" line="522" column="1" />
-      <Breakpoint file="/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.ApplicationCore/Services/FlashCardCollectionService.cs" relfile="CrossLang.ApplicationCore/Services/FlashCardCollectionService.cs" line="65" column="1" />
-      <Breakpoint file="/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.ApplicationCore/Services/LessonService.cs" relfile="CrossLang.ApplicationCore/Services/LessonService.cs" line="20" column="1" />
-      <Breakpoint file="/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.API/Controllers/BaseApiController.cs" relfile="CrossLang.API/Controllers/BaseApiController.cs" line="96" column="1" />
-    </BreakpointStore>
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.CrossLang.API PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
