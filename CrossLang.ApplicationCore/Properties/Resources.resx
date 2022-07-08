@@ -159,4 +159,12 @@
    <data name="CrossLang.ResponseMessage.NotValid" xml:space="preserve">
     <value>Không hợp lệ</value>
   </data>
+
+  <data name="CrossLang.ResponseMessage.Duplicate.Username" xml:space="preserve">
+    <value>Tên đăng nhập đã tồn tại</value>
+  </data>
+
+  <data name="CrossLang.ResponseMessage.Duplicate.Email" xml:space="preserve">
+    <value>Email đã tồn tại</value>
+  </data>
 </root>

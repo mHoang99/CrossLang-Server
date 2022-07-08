@@ -24,7 +24,7 @@ namespace CrossLang.ApplicationCore.Services
         {
             base.AfterAdd(ref entity);
 
-            if(entity.Questions == null)
+            if (entity.Questions == null)
             {
                 return;
             }
@@ -53,10 +53,80 @@ namespace CrossLang.ApplicationCore.Services
             if (exercise != null)
             {
                 exercise.Questions = ((IExerciseRepository)_repository).GetExerciseQuestionsMongo(id);
+                foreach (var question in exercise.Questions)
+                {
+                    question.Options.Shuffle();
+                    question.Answers = null;
+                }
             }
 
             serviceResult.SuccessState = true;
             serviceResult.Data = exercise;
+
+            return serviceResult;
+        }
+
+        public ServiceResult Submit(ExerciseAttempMongo entity)
+        {
+
+            if (entity.ExerciseID is null)
+            {
+                return serviceResult;
+            }
+
+            entity.UserID = _sessionData.ID;
+
+            var questions = ((IExerciseRepository)_repository).GetExerciseQuestionsMongo(entity.ExerciseID ?? 0);
+
+            if (questions != null)
+            {
+                ScoreAttemp(questions, ref entity);
+
+                ((IExerciseRepository)_repository).InsertExerciseAttempMongo(entity);
+                serviceResult.SuccessState = true;
+                serviceResult.Data = entity;
+            }
+
+            return serviceResult;
+        }
+
+        private void ScoreAttemp(List<QuestionMongo> questions, ref ExerciseAttempMongo entity)
+        {
+            var correctAnswers = 0;
+            foreach (var question in questions)
+            {
+                if(entity.AttempAnswers == null)
+                {
+                    break;
+                }
+
+                var attempAnswer = entity.AttempAnswers.Find(x => x.QuestionID.Equals(question.ID));
+                if(attempAnswer?.Answers.Count() != question.Answers.Count())
+                {
+                    break;
+                }
+
+                foreach (var answer in question.Answers)
+                {
+                    if(!attempAnswer.Answers.Exists(x => x.Equals(answer)))
+                    {
+                        correctAnswers = correctAnswers - 1;
+                        break ;
+                    };
+                }
+
+                correctAnswers = correctAnswers + 1;
+            }
+
+            entity.CorrectAnswerCount = correctAnswers;
+            entity.TotalAnswerCount = questions.Count();
+        }
+
+        public ServiceResult GetAttempHistory(long exerciseId)
+        {
+            var listAttemp = ((IExerciseRepository)_repository).GetAttempHistory(exerciseId);
+            serviceResult.SuccessState = true;
+            serviceResult.Data = listAttemp;
 
             return serviceResult;
         }

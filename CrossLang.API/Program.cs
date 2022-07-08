@@ -77,6 +77,15 @@ builder.Services.AddScoped<ILessonRepository, LessonRepository>();
 builder.Services.AddScoped<IExerciseService, ExerciseService>();
 builder.Services.AddScoped<IExerciseRepository, ExerciseRepository>();
 
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+
+builder.Services.AddScoped<ILessonCommentService, LessonCommentService>();
+builder.Services.AddScoped<ILessonCommentRepository, LessonCommentRepository>();
+
+builder.Services.AddScoped<INotificationService, NotificationService>();
+
 builder.Services.AddTransient<IDBContext, DBContext>();
 builder.Services.AddTransient<IMongoDBContext, MongoContext>();
 
@@ -85,6 +94,7 @@ builder.Services.AddHttpContextAccessor();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
 
 var app = builder.Build();
 

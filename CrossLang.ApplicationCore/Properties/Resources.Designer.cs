@@ -186,5 +186,25 @@ namespace CrossLang.ApplicationCore.Properties {
                 return ResourceManager.GetString("CrossLang.ResponseMessage.NotValid", resourceCulture);
             }
         }
+
+        /// <summary>
+        /// </summary>
+        internal static string CrossLang_ResponseMessage_Duplicate_Username
+        {
+            get
+            {
+                return ResourceManager.GetString("CrossLang_ResponseMessage_Duplicate_Username", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        /// </summary>
+        internal static string CrossLang_ResponseMessage_Duplicate_Email
+        {
+            get
+            {
+                return ResourceManager.GetString("CrossLang_ResponseMessage_Duplicate_Email", resourceCulture);
+            }
+        }
     }
 }

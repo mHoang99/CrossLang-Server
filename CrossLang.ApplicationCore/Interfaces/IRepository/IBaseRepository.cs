@@ -60,15 +60,20 @@ namespace CrossLang.ApplicationCore.Interfaces
         /// <returns>Đối tượng tìm được | null</returns>
         T GetEntityByProperty(T entity, PropertyInfo property);
 
-        List<T> QueryList(T entity, List<FilterObject> filters, int pageNum, int pageSize);
+        List<T> QueryList(T entity, List<FilterObject> filters, string formula, string sortBy, string sortDirection, int pageNum, int pageSize);
 
-        long QueryListCount(T entity, List<FilterObject> filters);
+        long QueryListCount(T entity, List<FilterObject> filters, string formula);
 
-        List<dynamic> QueryListByView(string viewName, T entity, List<FilterObject> filters, int pageNum, int pageSize);
+        List<dynamic> QueryListByView(string viewName, T entity, List<FilterObject> filters, string formula, string sortBy, string sortDirection, int pageNum, int pageSize);
 
-        long QueryListByViewCount(string v, T entity, List<FilterObject> filters);
+        long QueryListByViewCount(string v, T entity, List<FilterObject> filters, string formula);
 
         int UpdateFields(List<string> fields, T entity);
+
+
+        IEnumerable<IDictionary<string, object>> GetPreviewById(long id);
+
+        T GetEntityByColumns(T entity, List<string> columns);
         #endregion
 
 

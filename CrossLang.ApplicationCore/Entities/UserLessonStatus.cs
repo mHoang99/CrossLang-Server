@@ -9,7 +9,7 @@ using CrossLang.Library;
 namespace CrossLang.ApplicationCore.Entities
 {
     [TableName("user_lesson_status")]
-    class UserLessonStatus : BaseEntity
+    public class UserLessonStatus : BaseEntity
     {
         [DBColumn]
         [DisplayName("Nguời dùng")]

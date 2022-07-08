@@ -60,6 +60,15 @@ namespace CrossLang.Library
     }
 
     /// <summary>
+    /// Class đánh dấu các trường là cột hien thi len tren danh sach
+    /// </summary>
+    /// CREATEDBY: VMHOANG
+    [AttributeUsage(AttributeTargets.Property)]
+    public class DisplayColumn : Attribute
+    {
+    }
+
+    /// <summary>
     /// Class đánh dấu các trường là loại json
     /// </summary>
     /// CREATEDBY: VMHOANG

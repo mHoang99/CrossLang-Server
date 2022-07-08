@@ -1,4 +1,5 @@
-﻿using CrossLang.ApplicationCore.Enums;
+﻿using System.Text.Json.Serialization;
+using CrossLang.ApplicationCore.Enums;
 using CrossLang.Library;
 using MongoDB.Bson.Serialization.Attributes;
 

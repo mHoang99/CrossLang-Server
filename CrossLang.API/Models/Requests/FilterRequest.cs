@@ -9,6 +9,8 @@ namespace CrossLang.API.Models.Requests
         public int PageSize { get; set; }
         public T Entity { get; set; }
         public List<FilterObject> Filters { get; set; }
-
+        public string SortBy { get; set; }
+        public string SortDirection { get; set; }
+        public string Formula { get; set; }
     }
 }

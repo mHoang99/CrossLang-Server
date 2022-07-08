@@ -1,0 +1,17 @@
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.QueueHelper/bin/Debug/net6.0/CrossLang.QueueHelper.deps.json
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.QueueHelper/bin/Debug/net6.0/CrossLang.QueueHelper.dll
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.QueueHelper/bin/Debug/net6.0/CrossLang.QueueHelper.pdb
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.QueueHelper/bin/Debug/net6.0/CrossLang.Library.dll
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.QueueHelper/bin/Debug/net6.0/CrossLang.Models.dll
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.QueueHelper/bin/Debug/net6.0/CrossLang.Library.pdb
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.QueueHelper/bin/Debug/net6.0/CrossLang.Models.pdb
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.QueueHelper/obj/Debug/net6.0/CrossLang.QueueHelper.csproj.AssemblyReference.cache
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.QueueHelper/obj/Debug/net6.0/CrossLang.QueueHelper.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.QueueHelper/obj/Debug/net6.0/CrossLang.QueueHelper.AssemblyInfoInputs.cache
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.QueueHelper/obj/Debug/net6.0/CrossLang.QueueHelper.AssemblyInfo.cs
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.QueueHelper/obj/Debug/net6.0/CrossLang.QueueHelper.csproj.CoreCompileInputs.cache
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.QueueHelper/obj/Debug/net6.0/CrossLang.QueueHelper.csproj.CopyComplete
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.QueueHelper/obj/Debug/net6.0/CrossLang.QueueHelper.dll
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.QueueHelper/obj/Debug/net6.0/refint/CrossLang.QueueHelper.dll
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.QueueHelper/obj/Debug/net6.0/CrossLang.QueueHelper.pdb
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.QueueHelper/obj/Debug/net6.0/ref/CrossLang.QueueHelper.dll

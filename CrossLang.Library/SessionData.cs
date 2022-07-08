@@ -20,7 +20,7 @@ namespace CrossLang.Library
             _httpContextAccessor = httpContextAccessor;
         }
 
-        public static void CurrentPrincipalDispose()
+        public void CurrentPrincipalDispose()
         {
             string threadName = Thread.CurrentThread?.Name != null ? Thread.CurrentThread.Name.ToString() : string.Empty;
 

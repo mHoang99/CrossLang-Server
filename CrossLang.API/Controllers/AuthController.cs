@@ -8,6 +8,7 @@ using CrossLang.ApplicationCore.Entities;
 using CrossLang.Models;
 using CrossLang.Library;
 using CrossLang.Authentication.JWT;
+using CrossLang.ApplicationCore.Interfaces.IService;
 
 namespace CrossLang.API.Controllers
 {
@@ -21,6 +22,7 @@ namespace CrossLang.API.Controllers
         private readonly AccessTokenGenerator _accessTokenGenerator;
         private readonly RefreshTokenGenerator _refreshTokenGenerator;
         private readonly RefreshTokenValidator _refreshTokenValidator;
+        private readonly IUserService _userService;
         private readonly SessionData _sessionData;
 
         public AuthController(
@@ -29,7 +31,8 @@ namespace CrossLang.API.Controllers
             AccessTokenGenerator jwtGenerator,
             RefreshTokenGenerator refreshTokenGenerator,
             RefreshTokenValidator refreshTokenValidator,
-            SessionData sessionData
+            SessionData sessionData,
+            IUserService userService
             )
         {
             _authService = authService;
@@ -38,6 +41,7 @@ namespace CrossLang.API.Controllers
             _refreshTokenGenerator = refreshTokenGenerator;
             _refreshTokenValidator = refreshTokenValidator;
             _sessionData = sessionData;
+            _userService = userService;
         }
 
         /// <summary>
@@ -84,6 +88,22 @@ namespace CrossLang.API.Controllers
             {
                 return Ok(response.ConvertToApiReturn());
             }
+        }
+
+        /// <summary>
+        /// Xác thực
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [HttpPost("register")]
+        async public Task<IActionResult> Register([FromBody] User entity)
+        {
+            //Gọi service xác thực tài khoản
+            var response = _userService.Add(entity);
+
+            return Ok(response.ConvertToApiReturn());
+            
         }
 
         /// <summary>

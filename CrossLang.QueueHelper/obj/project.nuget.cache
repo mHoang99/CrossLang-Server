@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "dgSpecHash": "jKG1+znbZo0HVWojBXUCDJze3Fk8UXKtr5onMnIbUQznP3YtlAbERu6ED/V4OHwNKPwRTorBL/ljX9lFN3duQw==",
+  "success": true,
+  "projectFilePath": "/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.QueueHelper/CrossLang.QueueHelper.csproj",
+  "expectedPackageFiles": [
+    "/Users/mhoang/.nuget/packages/bcrypt.net-next/4.0.3/bcrypt.net-next.4.0.3.nupkg.sha512",
+    "/Users/mhoang/.nuget/packages/microsoft.aspnetcore.http.abstractions/2.2.0/microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
+    "/Users/mhoang/.nuget/packages/microsoft.aspnetcore.http.features/2.2.0/microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
+    "/Users/mhoang/.nuget/packages/microsoft.extensions.primitives/2.2.0/microsoft.extensions.primitives.2.2.0.nupkg.sha512",
+    "/Users/mhoang/.nuget/packages/newtonsoft.json/13.0.1/newtonsoft.json.13.0.1.nupkg.sha512",
+    "/Users/mhoang/.nuget/packages/rabbitmq.client/6.4.0/rabbitmq.client.6.4.0.nupkg.sha512",
+    "/Users/mhoang/.nuget/packages/system.memory/4.5.4/system.memory.4.5.4.nupkg.sha512",
+    "/Users/mhoang/.nuget/packages/system.runtime.compilerservices.unsafe/4.5.1/system.runtime.compilerservices.unsafe.4.5.1.nupkg.sha512",
+    "/Users/mhoang/.nuget/packages/system.text.encodings.web/4.5.0/system.text.encodings.web.4.5.0.nupkg.sha512",
+    "/Users/mhoang/.nuget/packages/system.threading.channels/4.7.1/system.threading.channels.4.7.1.nupkg.sha512"
+  ],
+  "logs": []
+}

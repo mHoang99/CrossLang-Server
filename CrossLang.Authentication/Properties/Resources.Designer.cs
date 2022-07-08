@@ -31,7 +31,8 @@ namespace CrossLang.Authentication.Properties {
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal Resources() {
         }
-        
+
+
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
@@ -68,7 +69,21 @@ namespace CrossLang.Authentication.Properties {
                 return ResourceManager.GetString("CrossLang_Authentication_ResponseMessage_TokenNotFound", resourceCulture);
             }
         }
-        
+
+        public static string CrossLang_Authentication_ResponseMessage_Duplicate_Username { get
+            {
+                return ResourceManager.GetString("CrossLang_Authentication_ResponseMessage_Duplicate_Username", resourceCulture);
+            }
+        }
+
+        public static string CrossLang_Authentication_ResponseMessage_Duplicate_Email
+        {
+            get
+            {
+                return ResourceManager.GetString("CrossLang_Authentication_ResponseMessage_Duplicate_Email", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>

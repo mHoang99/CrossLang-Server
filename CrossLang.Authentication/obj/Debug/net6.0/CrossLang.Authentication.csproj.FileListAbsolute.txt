@@ -46,9 +46,11 @@ D:/Classes/Thesis/CrossLang/cross-lang-server/CrossLang.Authentication/bin/Debug
 /Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.Authentication/bin/Debug/net6.0/CrossLang.ApplicationCore.dll
 /Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.Authentication/bin/Debug/net6.0/CrossLang.Library.dll
 /Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.Authentication/bin/Debug/net6.0/CrossLang.Models.dll
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.Authentication/bin/Debug/net6.0/CrossLang.QueueHelper.dll
 /Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.Authentication/bin/Debug/net6.0/CrossLang.ApplicationCore.pdb
 /Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.Authentication/bin/Debug/net6.0/CrossLang.Library.pdb
 /Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.Authentication/bin/Debug/net6.0/CrossLang.Models.pdb
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.Authentication/bin/Debug/net6.0/CrossLang.QueueHelper.pdb
 /Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.Authentication/obj/Debug/net6.0/CrossLang.Authentication.csproj.AssemblyReference.cache
 /Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.Authentication/obj/Debug/net6.0/CrossLang.Authentication.Properties.Resources.resources
 /Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.Authentication/obj/Debug/net6.0/CrossLang.Authentication.csproj.GenerateResource.cache

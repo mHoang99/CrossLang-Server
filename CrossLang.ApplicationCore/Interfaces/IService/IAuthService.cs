@@ -49,5 +49,7 @@ namespace CrossLang.ApplicationCore.Interfaces
         /// <returns></returns>
         /// CREATEDBY: VMHOANG
         ServiceResult getRefreshTokenOwner(string refreshToken);
+
+        ServiceResult Register(User entity);
     }
 }

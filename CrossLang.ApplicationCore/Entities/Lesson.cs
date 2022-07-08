@@ -44,8 +44,23 @@ namespace CrossLang.ApplicationCore.Entities
         [DisplayName("Thumbnail")]
         public string? Thumbnail { get; set; }
 
+        [DBColumn]
+        [DisplayName("Người viết bài")]
+        public long? UserID { get; set; }
+
+        [DBColumn]
+        [DisplayName("Số người học")]
+        public long? LearnerCount { get; set; }
+
         public List<string>? DictionaryWords { get; set; }
 
         public List<long>? DictionaryWordIDs { get; set; }
+
+        public long? FlashCardCollectionID { get; set; }
+
+        public bool? IsFinished { get; set; }
+
+        public long? LearnerID { get; set; }
+
     }
 }

@@ -30,6 +30,7 @@ namespace CrossLang.ApplicationCore.Entities
         /// Ngày tạo
         /// </summary>
         [DisplayName("Ngày tạo")]
+        [DisplayColumn]
         [DBColumn]
         public DateTime? CreatedDate { get; set; }
         /// <summary>
@@ -37,18 +38,21 @@ namespace CrossLang.ApplicationCore.Entities
         /// </summary>
         [DisplayName("Người tạo")]
         [DBColumn]
+        [DisplayColumn]
         public string? CreatedBy { get; set; }
         /// <summary>
         /// Ngày thay đổi gần nhất
         /// </summary>
         [DisplayName("Ngày thay đổi gần nhất")]
         [DBColumn]
+        [DisplayColumn]
         public DateTime? ModifiedDate { get; set; }
         /// <summary>
         /// Người thay đổi gần nhất
         /// </summary>
         [DisplayName("Người thay đổi")]
         [DBColumn]
+        [DisplayColumn]
         public string? ModifiedBy { get; set; }
         #endregion
 

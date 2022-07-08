@@ -11,11 +11,11 @@ namespace CrossLang.ApplicationCore.Services
 {
     public class FlashCardCollectionService : BaseService<FlashCardCollection>, IFlashCardCollectionService
     {
-        private IBaseRepository<FlashCardCollectionUserMapping> _flashCardCollectionUserMappingRepository;
+        private IBaseService<FlashCardCollectionUserMapping> _flashCardCollectionUserMappingRepository;
         private IBaseService<FlashCardCollectionUserMapping> _flashCardCollectionUserMappingService;
 
         public FlashCardCollectionService(IFlashCardCollectionRepository repository,
-            IBaseRepository<FlashCardCollectionUserMapping> fccumRepository,
+            IBaseService<FlashCardCollectionUserMapping> fccumRepository,
             IBaseService<FlashCardCollectionUserMapping> fccumService,
             IHttpContextAccessor httpContextAccessor, SessionData sessionData) : base(repository, httpContextAccessor, sessionData)
         {
@@ -33,11 +33,11 @@ namespace CrossLang.ApplicationCore.Services
 
         }
 
-        public ServiceResult GetListCollection(FlashCardCollection entity, List<FilterObject> filters, int pageNum, int pageSize)
+        public ServiceResult GetListCollection(FlashCardCollection entity, List<FilterObject> filters, string formula , int pageNum, int pageSize)
         {
-            var list = this._repository.QueryListByView("view_flash_card_collection", entity, filters, pageNum, pageSize);
+            var list = this._repository.QueryListByView("view_flash_card_collection", entity, filters, formula, "ModifiedDate", "desc", pageNum, pageSize);
 
-            long dbCount = this._repository.QueryListByViewCount("view_flash_card_collection", entity, filters);
+            long dbCount = this._repository.QueryListByViewCount("view_flash_card_collection", entity, filters, formula);
 
             serviceResult.SuccessState = true;
             serviceResult.Data = new

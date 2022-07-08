@@ -142,7 +142,7 @@ namespace CrossLang.API.Controllers
         [Authorize]
         public async Task<IActionResult> QueryList([FromBody] FilterRequest<T> filterRequest)
         {
-            var res = _service.QueryList(filterRequest.Entity ,filterRequest.Filters, filterRequest.PageNum, filterRequest.PageSize);
+            var res = _service.QueryList(filterRequest.Entity, filterRequest.Filters, filterRequest.Formula, filterRequest.SortBy, filterRequest.SortDirection, filterRequest.PageNum, filterRequest.PageSize);
 
             return Ok(res.ConvertToApiReturn());
         }
@@ -176,6 +176,23 @@ namespace CrossLang.API.Controllers
             var res = _service.UpdateFields(body.Fields, body.Entity);
 
             return Ok(res.ConvertToApiReturn());
+        }
+
+
+        /// <summary>
+        /// Lấy theo id
+        /// </summary>
+        /// <param name="id">Id của bản ghi</param>
+        /// <returns></returns>
+        /// CREATED_BY: vmhoang
+        [HttpGet("tableStruct")]
+        [Authorize]
+        async public Task<IActionResult> GetTableStruct()
+        {
+            var res = _service.GetTableStruct();
+
+            return Ok(res.ConvertToApiReturn());
+
         }
 
 

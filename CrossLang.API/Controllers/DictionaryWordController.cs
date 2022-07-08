@@ -19,7 +19,6 @@ namespace CrossLang.API.Controllers
 
 
         /// <summary>
-        /// Thoát đăng nhập
         /// </summary>
         /// <returns></returns>
         [Authorize]
@@ -32,7 +31,6 @@ namespace CrossLang.API.Controllers
         }
 
         /// <summary>
-        /// Thoát đăng nhập
         /// </summary>
         /// <returns></returns>
         [AllowAnonymous]
@@ -46,7 +44,6 @@ namespace CrossLang.API.Controllers
 
 
         /// <summary>
-        /// Thoát đăng nhập
         /// </summary>
         /// <returns></returns>
         [AllowAnonymous]

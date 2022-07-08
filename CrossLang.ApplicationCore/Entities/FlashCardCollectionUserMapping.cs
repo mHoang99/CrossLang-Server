@@ -14,7 +14,6 @@ namespace CrossLang.ApplicationCore.Entities
         [DBColumn]
         [DisplayName("Collection lien quan")]
         public long? FlashCardCollectionID { get; set; }
-
         [DBColumn]
         [DisplayName("Đang theo dõi")]
         public Boolean? IsFollowing { get; set; }

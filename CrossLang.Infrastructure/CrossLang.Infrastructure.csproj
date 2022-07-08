@@ -11,8 +11,8 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
     <PackageReference Include="MySqlConnector" Version="2.1.10" />
     <PackageReference Include="PluralizeService.Core" Version="1.2.21147.2" />
-    <PackageReference Include="MongoDB.Bson" Version="2.16.0" />
-    <PackageReference Include="MongoDB.Driver" Version="2.16.0" />
+    <PackageReference Include="MongoDB.Bson" Version="2.16.1" />
+    <PackageReference Include="MongoDB.Driver" Version="2.16.1" />
   </ItemGroup>
 
   <ItemGroup>

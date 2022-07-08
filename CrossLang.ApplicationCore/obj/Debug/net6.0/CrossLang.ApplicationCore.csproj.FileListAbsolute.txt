@@ -48,8 +48,10 @@ D:/Classes/Thesis/CrossLang/cross-lang-server/CrossLang.ApplicationCore/bin/Debu
 /Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.ApplicationCore/bin/Debug/net6.0/CrossLang.ApplicationCore.pdb
 /Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.ApplicationCore/bin/Debug/net6.0/CrossLang.Library.dll
 /Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.ApplicationCore/bin/Debug/net6.0/CrossLang.Models.dll
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.ApplicationCore/bin/Debug/net6.0/CrossLang.QueueHelper.dll
 /Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.ApplicationCore/bin/Debug/net6.0/CrossLang.Library.pdb
 /Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.ApplicationCore/bin/Debug/net6.0/CrossLang.Models.pdb
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.ApplicationCore/bin/Debug/net6.0/CrossLang.QueueHelper.pdb
 /Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.ApplicationCore/obj/Debug/net6.0/CrossLang.ApplicationCore.csproj.AssemblyReference.cache
 /Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.ApplicationCore/obj/Debug/net6.0/CrossLang.ApplicationCore.Properties.Resources.resources
 /Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.ApplicationCore/obj/Debug/net6.0/CrossLang.ApplicationCore.csproj.GenerateResource.cache

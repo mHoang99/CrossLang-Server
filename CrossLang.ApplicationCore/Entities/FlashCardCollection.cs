@@ -44,5 +44,7 @@ namespace CrossLang.ApplicationCore.Entities
         [DBColumn]
         [DisplayName("Số từ")]
         public int? WordCount { get; set; }
+
+        public int Progress { get; set; }
     }
 }

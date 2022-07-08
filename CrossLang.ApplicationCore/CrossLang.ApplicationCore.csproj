@@ -14,15 +14,16 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.Options" Version="6.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.19.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.21.0" />
     <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.22.0" />
-    <PackageReference Include="MongoDB.Driver" Version="2.16.0" />
-    <PackageReference Include="MongoDB.Bson" Version="2.16.0" />
+    <PackageReference Include="MongoDB.Driver" Version="2.16.1" />
+    <PackageReference Include="MongoDB.Bson" Version="2.16.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\CrossLang.Library\CrossLang.Library.csproj" />
     <ProjectReference Include="..\CrossLang.Models\CrossLang.Models.csproj" />
+    <ProjectReference Include="..\CrossLang.QueueHelper\CrossLang.QueueHelper.csproj" />
   </ItemGroup>
 
   <ItemGroup>

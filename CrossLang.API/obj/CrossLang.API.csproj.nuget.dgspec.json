@@ -60,7 +60,7 @@
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
-              "version": "[6.0.5, )"
+              "version": "[6.0.6, )"
             },
             "Microsoft.AspNetCore.Mvc.Abstractions": {
               "target": "Package",
@@ -68,7 +68,7 @@
             },
             "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
               "target": "Package",
-              "version": "[6.0.5, )"
+              "version": "[6.0.6, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -124,6 +124,9 @@
               },
               "/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.Models/CrossLang.Models.csproj": {
                 "projectPath": "/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.Models/CrossLang.Models.csproj"
+              },
+              "/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.QueueHelper/CrossLang.QueueHelper.csproj": {
+                "projectPath": "/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.QueueHelper/CrossLang.QueueHelper.csproj"
               }
             }
           }
@@ -164,11 +167,11 @@
             },
             "MongoDB.Bson": {
               "target": "Package",
-              "version": "[2.16.0, )"
+              "version": "[2.16.1, )"
             },
             "MongoDB.Driver": {
               "target": "Package",
-              "version": "[2.16.0, )"
+              "version": "[2.16.1, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
@@ -176,7 +179,7 @@
             },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
-              "version": "[6.19.0, )"
+              "version": "[6.21.0, )"
             }
           },
           "imports": [
@@ -320,11 +323,11 @@
             },
             "MongoDB.Bson": {
               "target": "Package",
-              "version": "[2.16.0, )"
+              "version": "[2.16.1, )"
             },
             "MongoDB.Driver": {
               "target": "Package",
-              "version": "[2.16.0, )"
+              "version": "[2.16.1, )"
             },
             "MySqlConnector": {
               "target": "Package",
@@ -457,6 +460,72 @@
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.301/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.QueueHelper/CrossLang.QueueHelper.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.QueueHelper/CrossLang.QueueHelper.csproj",
+        "projectName": "CrossLang.QueueHelper",
+        "projectPath": "/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.QueueHelper/CrossLang.QueueHelper.csproj",
+        "packagesPath": "/Users/mhoang/.nuget/packages/",
+        "outputPath": "/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.QueueHelper/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/mhoang/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.Library/CrossLang.Library.csproj": {
+                "projectPath": "/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.Library/CrossLang.Library.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[6.4.0, )"
             }
           },
           "imports": [

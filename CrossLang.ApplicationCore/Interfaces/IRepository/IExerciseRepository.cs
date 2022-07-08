@@ -20,6 +20,12 @@ namespace CrossLang.ApplicationCore.Interfaces.IRepository
 
 
         public ReplaceOneResult UpsertLessonContentMongo(long masterID, QuestionMongo entity);
+
+        public void InsertExerciseAttempMongo(ExerciseAttempMongo entity);
+
+        public List<ExerciseAttempMongo> GetExerciseAttempMongo(long exerciseID);
+
+        public List<ExerciseAttempMongo> GetAttempHistory(long exerciseId);
     }
 
 }

@@ -247,8 +247,8 @@ namespace CrossLang.Infrastructure
 
             var propertyType = propertyInfo.PropertyType;
 
-            if (propertyInfo.GetCustomAttribute(typeof(DBColumn), false) != null)
-            {
+            //if (propertyInfo.GetCustomAttribute(typeof(DBColumn), false) != null)
+            //{
                 if (propertyType == typeof(Guid) || propertyType == typeof(Guid?) || propertyType == typeof(string))
                 {
                     parameters.Add($"@{propertyName}", propertyValue, DbType.String);
@@ -257,7 +257,7 @@ namespace CrossLang.Infrastructure
                 {
                     parameters.Add($"@{propertyName}", propertyValue);
                 }
-            }
+            //}
         }
 
         /// <summary>
@@ -290,11 +290,11 @@ namespace CrossLang.Infrastructure
         /// <param name="pageNum"></param>
         /// <param name="pageSize"></param>
         /// <returns></returns>
-        public List<T> QueryList(T entity, List<FilterObject> filters, int pageNum, int pageSize)
+        public List<T> QueryList(T entity, List<FilterObject> filters, string formula, string sortBy, string sortDirection, int pageNum, int pageSize)
         {
             var parameters = new DynamicParameters();
 
-            var filterStr = BuildFilterString(entity, filters);
+            var filterStr = BuildFilterString(entity, filters, formula);
 
             filters.ForEach(x =>
             {
@@ -304,7 +304,7 @@ namespace CrossLang.Infrastructure
             var res = new List<T>();
 
 
-            var query = $"SELECT * FROM {_tableName} WHERE {filterStr} LIMIT {pageSize} OFFSET {pageSize * (pageNum - 1)};";
+            var query = $"SELECT * FROM {_tableName} WHERE {filterStr} ORDER BY {sortBy} {sortDirection} LIMIT {pageSize} OFFSET {pageSize * (pageNum - 1)};";
 
             var resp = (_dbConnection.Query<T>(query, parameters, commandType: CommandType.Text))?.ToList() ?? new List<T>();
 
@@ -320,11 +320,11 @@ namespace CrossLang.Infrastructure
         /// <param name="pageNum"></param>
         /// <param name="pageSize"></param>
         /// <returns></returns>
-        public List<dynamic> QueryListByView(string viewName, T entity, List<FilterObject> filters, int pageNum, int pageSize)
+        public List<dynamic> QueryListByView(string viewName, T entity, List<FilterObject> filters, string formula, string sortBy, string sortDirection, int pageNum, int pageSize)
         {
             var parameters = new DynamicParameters();
 
-            var filterStr = BuildFilterString(entity, filters);
+            var filterStr = BuildFilterString(entity, filters, formula);
 
             filters.ForEach(x =>
             {
@@ -334,7 +334,7 @@ namespace CrossLang.Infrastructure
             var res = new List<T>();
 
 
-            var query = $"SELECT * FROM {viewName} WHERE {filterStr} ORDER BY CreatedDate DESC LIMIT {pageSize} OFFSET {pageSize * (pageNum - 1)};";
+            var query = $"SELECT * FROM {viewName} WHERE {filterStr} ORDER BY {sortBy} {sortDirection} LIMIT {pageSize} OFFSET {pageSize * (pageNum - 1)};";
 
             var resp = (_dbConnection.Query<dynamic>(query, parameters, commandType: CommandType.Text))?.ToList() ?? new List<dynamic>();
 
@@ -350,11 +350,11 @@ namespace CrossLang.Infrastructure
         /// <param name="pageNum"></param>
         /// <param name="pageSize"></param>
         /// <returns></returns>
-        public long QueryListCount(T entity, List<FilterObject> filters)
+        public long QueryListCount(T entity, List<FilterObject> filters, string formula)
         {
             var parameters = new DynamicParameters();
 
-            var filterStr = BuildFilterString(entity, filters);
+            var filterStr = BuildFilterString(entity, filters, formula);
 
             filters.ForEach(x =>
             {
@@ -371,11 +371,11 @@ namespace CrossLang.Infrastructure
             return resp;
         }
 
-        public long QueryListByViewCount(string viewName, T entity, List<FilterObject> filters)
+        public long QueryListByViewCount(string viewName, T entity, List<FilterObject> filters, string formula)
         {
             var parameters = new DynamicParameters();
 
-            var filterStr = BuildFilterString(entity, filters);
+            var filterStr = BuildFilterString(entity, filters, formula);
 
             filters.ForEach(x =>
             {
@@ -397,64 +397,159 @@ namespace CrossLang.Infrastructure
         /// </summary>
         /// <param name="filters"></param>
         /// <returns></returns>
-        public string BuildFilterString(T entity, List<FilterObject> filters)
+        public string BuildFilterString(T entity, List<FilterObject> filters, string formula = null)
         {
             string str = " ";
 
-            filters.ForEach(x =>
+
+            if (string.IsNullOrEmpty(formula))
             {
-                PropertyInfo prop = entity.GetType().GetProperty(x.FieldName);
-
-                if (prop == null)
+                filters.ForEach(x =>
                 {
-                    return;
-                }
+                    PropertyInfo? prop = entity.GetType().GetProperty(x.FieldName);
 
-                var propType = prop.PropertyType;
-                switch (x.Operator)
+                    if (prop == null)
+                    {
+                        return;
+                    }
+
+                    var propType = prop.PropertyType;
+                    switch (x.Operator)
+                    {
+                        case (int)Operator.EQUALS:
+                            str += $@"{x.FieldName} = @{x.FieldName}";
+                            break;
+                        case (int)Operator.NOT_EQUALS:
+                            str += $@"{x.FieldName} <> @{x.FieldName}";
+                            break;
+                        case (int)Operator.LIKE:
+                            str += $@"{x.FieldName} LIKE @{x.FieldName}";
+                            break;
+                        case (int)Operator.NOT_LIKE:
+                            str += $@"{x.FieldName} NOT LIKE @{x.FieldName}";
+                            break;
+                        case (int)Operator.GREATER_THAN:
+                            str += $@"{x.FieldName} > @{x.FieldName}";
+                            break;
+                        case (int)Operator.GREATER_EQUAL:
+                            str += $@"{x.FieldName} >= @{x.FieldName}";
+                            break;
+                        case (int)Operator.SMALLER_THAN:
+                            str += $@"{x.FieldName} < @{x.FieldName}";
+                            break;
+                        case (int)Operator.SMALLER_EQUAL:
+                            str += $@"{x.FieldName} <= @{x.FieldName}";
+                            break;
+                        case (int)Operator.IS_NOT:
+                            str += $@"{x.FieldName} IS NOT @{x.FieldName}";
+                            break;
+                        case (int)Operator.IS:
+                            str += $@"{x.FieldName} IS @{x.FieldName}";
+                            break;
+                        case (int)Operator.IS_NULL:
+                            str += $@"{x.FieldName} IS NULL";
+                            break;
+                        case (int)Operator.IS_NOT_NULL:
+                            str += $@"{x.FieldName} IS NOT NULL";
+                            break;
+                        case (int)Operator.IN:
+                            if (x.ContainedValues.Any())
+                            {
+                                if (propType.ToString() == "string")
+                                {
+                                    str += $@"{x.FieldName} IN ('{string.Join("','", x.ContainedValues)}')";
+                                }
+                                else
+                                {
+                                    str += $@"{x.FieldName} IN ({string.Join(",", x.ContainedValues)})";
+                                }
+                            }
+                            break;
+                        default:
+                            str += "1=1";
+                            break;
+                    }
+
+                    str += " AND ";
+
+                });
+                str += "1 = 1";
+            }
+            else
+            {
+                str = formula;
+
+                for (int i = 0; i < filters.Count(); ++i)
                 {
-                    case (int)Operator.EQUALS:
-                        str += $@"{x.FieldName} = @{x.FieldName}";
-                        break;
-                    case (int)Operator.NOT_EQUALS:
-                        str += $@"{x.FieldName} <> @{x.FieldName}";
-                        break;
-                    case (int)Operator.GREATER_THAN:
-                        str += $@"{x.FieldName} > @{x.FieldName}";
-                        break;
-                    case (int)Operator.GREATER_EQUAL:
-                        str += $@"{x.FieldName} >= @{x.FieldName}";
-                        break;
-                    case (int)Operator.SMALLER_THAN:
-                        str += $@"{x.FieldName} < @{x.FieldName}";
-                        break;
-                    case (int)Operator.SMALLER_EQUAL:
-                        str += $@"{x.FieldName} <= @{x.FieldName}";
-                        break;
-                    case (int)Operator.IN:
-                        if (x.ContainedValues.Any())
-                        {
-                            if (propType.ToString() == "string")
+                    var x = filters[i];
+                    PropertyInfo? prop = entity.GetType().GetProperty(x.FieldName);
+
+                    if (prop == null)
+                    {
+                        continue;
+                    }
+
+                    var fieldStr = "";
+
+                    var propType = prop.PropertyType;
+                    switch (x.Operator)
+                    {
+                        case (int)Operator.EQUALS:
+                            fieldStr = $@"{x.FieldName} = @{x.FieldName}";
+                            break;
+                        case (int)Operator.NOT_EQUALS:
+                            fieldStr = $@"{x.FieldName} <> @{x.FieldName}";
+                            break;
+                        case (int)Operator.LIKE:
+                            fieldStr = $@"{x.FieldName} LIKE @{x.FieldName}";
+                            break;
+                        case (int)Operator.NOT_LIKE:
+                            fieldStr = $@"{x.FieldName} NOT LIKE @{x.FieldName}";
+                            break;
+                        case (int)Operator.GREATER_THAN:
+                            fieldStr = $@"{x.FieldName} > @{x.FieldName}";
+                            break;
+                        case (int)Operator.GREATER_EQUAL:
+                            fieldStr = $@"{x.FieldName} >= @{x.FieldName}";
+                            break;
+                        case (int)Operator.SMALLER_THAN:
+                            fieldStr = $@"{x.FieldName} < @{x.FieldName}";
+                            break;
+                        case (int)Operator.SMALLER_EQUAL:
+                            fieldStr = $@"{x.FieldName} <= @{x.FieldName}";
+                            break;
+                        case (int)Operator.IS_NOT:
+                            fieldStr = $@"{x.FieldName} IS NOT @{x.FieldName}";
+                            break;
+                        case (int)Operator.IS:
+                            fieldStr = $@"{x.FieldName} IS @{x.FieldName}";
+                            break;
+                        case (int)Operator.IS_NULL:
+                            fieldStr = $@"{x.FieldName} IS NULL";
+                            break;
+                        case (int)Operator.IS_NOT_NULL:
+                            fieldStr = $@"{x.FieldName} IS NOT NULL";
+                            break;
+                        case (int)Operator.IN:
+                            if (x.ContainedValues.Any())
                             {
-                                str += $@"{x.FieldName} IN ('{string.Join("','", x.ContainedValues)}')";
+                                if (propType.ToString() == "string")
+                                {
+                                    fieldStr = $@"{x.FieldName} IN ('{string.Join("','", x.ContainedValues)}')";
+                                }
+                                else
+                                {
+                                    fieldStr = $@"{x.FieldName} IN ({string.Join(",", x.ContainedValues)})";
+                                }
                             }
-                            else
-                            {
-                                str += $@"{x.FieldName} IN ({string.Join(",", x.ContainedValues)})";
-                            }
-                        }
-                        break;
-                    default:
-                        str += "1=1";
-                        break;
+                            break;
+                        default:
+                            fieldStr = "1=1";
+                            break;
+                    }
+                    str = str.Replace($"({i + 1})", fieldStr);
                 }
-
-                str += " AND ";
-
-
-            });
-
-            str += "1 = 1";
+            }
 
             return str;
         }
@@ -471,7 +566,7 @@ namespace CrossLang.Infrastructure
 
             fields.ForEach(x =>
             {
-                if(entityDBColumns.Exists(col => col == x))
+                if (entityDBColumns.Exists(col => col == x))
                 {
                     MappingDbTypeByField(entity, x, ref parameters);
                     paramStr = $@"{paramStr}{x} = @{x},";
@@ -500,6 +595,34 @@ namespace CrossLang.Infrastructure
             }
 
             return rowsAffected;
+        }
+
+        public virtual IEnumerable<IDictionary<string, object>> GetPreviewById(long id)
+        {
+            return new List<Dictionary<string, object>>();
+        }
+
+        public T GetEntityByColumns(T entity, List<string> columns)
+        {
+            var dynamicParameters = new DynamicParameters();
+
+            var wherePhrase = "";
+
+            foreach (var column in columns)
+            {
+                wherePhrase = $"{wherePhrase} {column} = @{column} AND ";
+                dynamicParameters.Add(column, entity.GetType().GetProperty(column)?.GetValue(entity));
+            }
+
+            wherePhrase = $"{wherePhrase} 1 = 1";
+
+            var tableName = typeof(T).GetTableName();
+
+            var query = $"SELECT * FROM {tableName} WHERE {wherePhrase};";
+
+            var res = _dbConnection.QueryFirstOrDefault<T>(query, dynamicParameters);
+
+            return res;
         }
 
 

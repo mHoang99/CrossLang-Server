@@ -64,6 +64,24 @@ namespace CrossLang.ApplicationCore
         #endregion
 
         #region Methods
+
+        public void CreateTask(Action action)
+        {
+            var taskName = (new Guid()).ToString();
+
+            Task.Run(() =>
+            {
+                Thread.CurrentThread.Name = taskName;
+                action();
+            })
+            .ContinueWith((task) =>
+            {
+                _sessionData.CurrentPrincipalDispose();
+            });
+        }
+
+
+
         public ServiceResult Get()
         {
             try
@@ -321,7 +339,7 @@ namespace CrossLang.ApplicationCore
                     var propertyValue = property.GetValue(entity);
                     var propertyName = property.Name;
 
-                    if(fields != null && !fields.Exists(x => x.Equals(propertyName)))
+                    if (fields != null && !fields.Exists(x => x.Equals(propertyName)))
                     {
                         continue;
                     }
@@ -462,6 +480,9 @@ namespace CrossLang.ApplicationCore
 
         public virtual ServiceResult GetDetailsById(long id)
         {
+            serviceResult.Data = _repository.GetDetailsById(id);
+            serviceResult.SuccessState = true;
+
             return serviceResult;
         }
 
@@ -472,11 +493,11 @@ namespace CrossLang.ApplicationCore
         /// <param name="pageNum"></param>
         /// <param name="pageSize"></param>
         /// <returns></returns>
-        public ServiceResult QueryList(T entity, List<FilterObject> filters, int pageNum, int pageSize)
+        public virtual ServiceResult QueryList(T entity, List<FilterObject> filters, string formula, string sortBy = "ModifiedDate", string sortDirection = "desc", int pageNum = 1, int pageSize = 10)
         {
-            List<T> list = this._repository.QueryList(entity, filters, pageNum, pageSize);
+            List<T> list = this._repository.QueryList(entity, filters, formula, sortBy, sortDirection, pageNum, pageSize);
 
-            long dbCount = this._repository.QueryListCount(entity, filters);
+            long dbCount = this._repository.QueryListCount(entity, filters, formula);
 
             serviceResult.SuccessState = true;
             serviceResult.Data = new
@@ -498,11 +519,11 @@ namespace CrossLang.ApplicationCore
         /// <param name="pageNum"></param>
         /// <param name="pageSize"></param>
         /// <returns></returns>
-        public ServiceResult QueryListByView(string viewName, T entity, List<FilterObject> filters, int pageNum, int pageSize)
+        public ServiceResult QueryListByView(string viewName, T entity, List<FilterObject> filters, string formula, string sortBy = "ModifiedDate", string sortDirection = "desc", int pageNum = 1, int pageSize = 10)
         {
-            List<dynamic> list = this._repository.QueryListByView(viewName, entity, filters, pageNum, pageSize);
+            List<dynamic> list = this._repository.QueryListByView(viewName, entity, filters, formula, sortBy, sortDirection, pageNum, pageSize);
 
-            long dbCount = this._repository.QueryListCount(entity, filters);
+            long dbCount = this._repository.QueryListCount(entity, filters, formula);
 
             serviceResult.SuccessState = true;
             serviceResult.Data = new
@@ -536,7 +557,7 @@ namespace CrossLang.ApplicationCore
 
         public ServiceResult UpdateFields(List<string> fields, T entity)
         {
-            if(!Validate(entity, fields))
+            if (!Validate(entity, fields))
             {
                 return serviceResult;
             }
@@ -545,6 +566,41 @@ namespace CrossLang.ApplicationCore
 
             serviceResult.SuccessState = true;
             serviceResult.Data = data;
+
+            return serviceResult;
+        }
+
+        public ServiceResult GetPreviewById(long id)
+        {
+            var data = _repository.GetPreviewById(id);
+
+            serviceResult.SuccessState = true;
+            serviceResult.Data = data;
+
+            return serviceResult;
+        }
+
+
+        public ServiceResult GetTableStruct()
+        {
+            var properties = typeof(T).GetProperties();
+
+            var res = new List<Dictionary<string, string>>();
+
+            foreach (var property in properties)
+            {
+                var propertyDisplayName = property.GetCustomAttributes(typeof(DisplayNameAttribute), false).FirstOrDefault() as DisplayNameAttribute;
+                if (property.IsDefined(typeof(DisplayColumn), false))
+                {
+                    var x = new Dictionary<string, string>();
+                    x.Add("FieldName", property.Name);
+                    x.Add("DisplayName", propertyDisplayName?.DisplayName ?? "");
+                    res.Add(x);
+                }
+            }
+
+            serviceResult.SuccessState = true;
+            serviceResult.Data = res;
 
             return serviceResult;
         }

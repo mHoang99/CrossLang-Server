@@ -26,7 +26,7 @@ namespace CrossLang.API.Controllers
         [Authorize]
         public async Task<IActionResult> GetListCollection([FromBody] FilterRequest<FlashCardCollection> filterRequest)
         {
-            var res = ((IFlashCardCollectionService)_service).GetListCollection(filterRequest.Entity, filterRequest.Filters, filterRequest.PageNum, filterRequest.PageSize);
+            var res = ((IFlashCardCollectionService)_service).GetListCollection(filterRequest.Entity, filterRequest.Filters, filterRequest.Formula, filterRequest.PageNum, filterRequest.PageSize);
 
             return Ok(res.ConvertToApiReturn());
         }

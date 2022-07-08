@@ -202,6 +202,46 @@ namespace CrossLang.Authentication
                 );
             }
         }
+
+        public ServiceResult Register(User entity)
+        {
+            var tmpUser = new User
+            {
+                Username = entity.Username
+            };
+
+            var usernameProp = tmpUser.GetType().GetProperty("Username");
+
+            var resUserByUsername = _userRepository.GetEntityByProperty(tmpUser, usernameProp);
+
+            if (resUserByUsername != null)
+            {
+                this.serviceResult.SuccessState = false;
+                serviceResult.UserMsg = Properties.Resources.CrossLang_Authentication_ResponseMessage_Duplicate_Username;
+                return serviceResult;
+            }
+
+
+            var tmpUserEmail = new User
+            {
+                Email = entity.Email
+            };
+
+            var emailProp = tmpUserEmail.GetType().GetProperty("Email");
+
+            var resUserByEmail = _userRepository.GetEntityByProperty(tmpUserEmail, emailProp);
+
+            if (resUserByEmail != null)
+            {
+                this.serviceResult.SuccessState = false;
+                serviceResult.UserMsg = Properties.Resources.CrossLang_Authentication_ResponseMessage_Duplicate_Email;
+                return serviceResult;
+            }
+
+            serviceResult.SuccessState = true;
+            return serviceResult;
+
+        }
         #endregion
     }
 }

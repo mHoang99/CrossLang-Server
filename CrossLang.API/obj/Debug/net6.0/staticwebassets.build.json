@@ -1,11 +1,88 @@
 {
   "Version": 1,
-  "Hash": "NDYpfZxSxKxs1Zmhn7CA0jrAe/HHjg2dZuzPJOS0SaE=",
+  "Hash": "x3sVUemKQFVhcPCzNuPqf02UNcBqVJDPcuMZhccV3uQ=",
   "Source": "CrossLang.API",
   "BasePath": "_content/CrossLang.API",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "CrossLang.API/wwwroot",
+      "Source": "CrossLang.API",
+      "ContentRoot": "/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.API/wwwroot/",
+      "BasePath": "_content/CrossLang.API",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.API/wwwroot/Images/Avatar/0fe6371f-6760-48cb-afe8-3f924f298b23.png",
+      "SourceId": "CrossLang.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.API/wwwroot/",
+      "BasePath": "_content/CrossLang.API",
+      "RelativePath": "Images/Avatar/0fe6371f-6760-48cb-afe8-3f924f298b23.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Images/Avatar/0fe6371f-6760-48cb-afe8-3f924f298b23.png"
+    },
+    {
+      "Identity": "/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.API/wwwroot/Images/Avatar/139f0835-c2bf-41e0-8b06-b1e5089cd3e1.png",
+      "SourceId": "CrossLang.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.API/wwwroot/",
+      "BasePath": "_content/CrossLang.API",
+      "RelativePath": "Images/Avatar/139f0835-c2bf-41e0-8b06-b1e5089cd3e1.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Images/Avatar/139f0835-c2bf-41e0-8b06-b1e5089cd3e1.png"
+    },
+    {
+      "Identity": "/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.API/wwwroot/Images/Avatar/25fcb4dc-7cc7-4ff9-bd3c-a95de1f02c7e.png",
+      "SourceId": "CrossLang.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.API/wwwroot/",
+      "BasePath": "_content/CrossLang.API",
+      "RelativePath": "Images/Avatar/25fcb4dc-7cc7-4ff9-bd3c-a95de1f02c7e.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Images/Avatar/25fcb4dc-7cc7-4ff9-bd3c-a95de1f02c7e.png"
+    },
+    {
+      "Identity": "/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.API/wwwroot/Images/Avatar/cce2f34d-38ac-4a6a-a5fb-ded91af7d21c.png",
+      "SourceId": "CrossLang.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.API/wwwroot/",
+      "BasePath": "_content/CrossLang.API",
+      "RelativePath": "Images/Avatar/cce2f34d-38ac-4a6a-a5fb-ded91af7d21c.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Images/Avatar/cce2f34d-38ac-4a6a-a5fb-ded91af7d21c.png"
+    }
+  ]
 }

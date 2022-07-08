@@ -35,6 +35,9 @@ namespace CrossLang.ApplicationCore.Interfaces
         /// <param name="entity">Thực thể theo kiểu T</param>
         /// <returns>Thông tin trả về</returns>
         ServiceResult Add(T entity);
+
+        ServiceResult GetPreviewById(long id);
+
         /// <summary>
         /// Thay đổi bản ghi
         /// </summary>
@@ -51,12 +54,14 @@ namespace CrossLang.ApplicationCore.Interfaces
 
         ServiceResult GetDetailsById(long id);
 
-        ServiceResult QueryList(T entity, List<FilterObject> filters, int pageNum, int pageSize);
+        ServiceResult QueryList(T entity, List<FilterObject> filters, string formula, string sortBy = "ModifiedDate", string sortDirection = "desc", int pageNum = 1, int pageSize = 10);
 
-        ServiceResult QueryListByView(string viewName, T entity, List<FilterObject> filters, int pageNum, int pageSize);
+        ServiceResult QueryListByView(string viewName, T entity, List<FilterObject> filters, string formula, string sortBy = "ModifiedDate", string sortDirection = "desc", int pageNum = 1, int pageSize = 10);
         ServiceResult MassAdd(List<T> entities);
 
         ServiceResult UpdateFields(List<string> fields, T entity);
+
+        ServiceResult GetTableStruct();
         #endregion
     }
 }
