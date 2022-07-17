@@ -43,21 +43,21 @@ public static class RabbitMQHelper
 
     public static void Subscribe<T>(string queueName, Action<RabbitMQMessage<T>> action)
     {
-        using (var channel = getConnection().CreateModel())
+        var channel = getConnection().CreateModel();
+        channel.QueueDeclare(queue: queueName, durable: false, exclusive: false, autoDelete: false, arguments: null);
+        var consumer = new EventingBasicConsumer(channel);
+
+        consumer.Received += (model, ea) =>
         {
-            channel.QueueDeclare(queue: queueName, durable: false, exclusive: false, autoDelete: false, arguments: null);
-            var consumer = new EventingBasicConsumer(channel);
+            var body = ea.Body.ToArray();
+            var message = Encoding.UTF8.GetString(body);
 
-            consumer.Received += (model, ea) =>
-            {
-                var body = ea.Body.ToArray();
-                var message = Encoding.UTF8.GetString(body);
+            var decodedMsg = JsonConvert.DeserializeObject<RabbitMQMessage<T>>(message);
 
-                var decodedMsg = JsonConvert.DeserializeObject<RabbitMQMessage<T>>(message);
+            action(decodedMsg);
+        };
 
-                action(decodedMsg);
-            };
-        }
+        channel.BasicConsume(queue: queueName, autoAck: true, consumer: consumer);
     }
 }
 

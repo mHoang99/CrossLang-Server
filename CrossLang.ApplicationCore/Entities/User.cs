@@ -79,6 +79,7 @@ namespace CrossLang.ApplicationCore.Entities
         [DBColumn]
         [DisplayColumn]
         [DisplayName("Vai trò")]
+        [EditPrivilege((int)RoleEnum.ADMIN)]
         public long? RoleID { get; set; }
 
         [DBColumn]
@@ -88,13 +89,63 @@ namespace CrossLang.ApplicationCore.Entities
 
         [DBColumn]
         [DisplayColumn]
-        [DisplayName("Quyền của gói")]
-        public long? PackagePermission { get; set; }
+        [EditPrivilege((int)RoleEnum.ADMIN)]
+        [DisplayName("Gói")]
+        public PackageEnum? Package { get; set; }
+
+        [DisplayColumn]
+        [DisplayName("Tên gói")]
+        public string? PackageName {
+            get {
+                if(this.Package == null)
+                {
+                    return "";
+                }
+                return Enum.GetName(typeof(PackageEnum), this.Package);
+            }
+        }
+
+        [DisplayColumn]
+        [DisplayName("Vai trò")]
+        public string? RoleName
+        {
+            get; set;
+        }
+
+        [Unique]
+        [MaxLength(20)]
+        [DBColumn]
+        [DisplayName("Mã nhân viên")]
+        [EditPrivilege((int)RoleEnum.ADMIN)]
+        public string? EmployeeCode { get; set; }
 
         [DBColumn]
-        [Unique]
-        [DisplayName("Nhân viên tương ứng")]
-        public long? EmployeeId { get; set; }
+        [MaxLength(500)]
+        [DisplayName("Ảnh chân dung")]
+        [EditPrivilege((int)RoleEnum.TEACHER)]
+        public string? PersonalImage { get; set; }
+
+        [DBColumn]
+        [MaxLength(500)]
+        [DisplayName("Mô tả")]
+        [EditPrivilege((int)RoleEnum.TEACHER)]
+        public string? Description { get; set; }
+
+        [DBColumn]
+        [DisplayName("Là nhân viên")]
+        [EditPrivilege((int)RoleEnum.ADMIN)]
+        public bool? IsEmployee { get; set; }
+
+        [DBColumn]
+        [DisplayName("Ngày hết hạn")]
+        [DisplayColumn]
+        [EditPrivilege((int)RoleEnum.ADMIN)]
+        public DateTime? ExpDate { get; set; }
+
+        [DBColumn]
+        [DisplayName("Đã dùng thử")]
+        [EditPrivilege((int)RoleEnum.ADMIN)]
+        public bool? IsTrialUsed { get; set; }
 
         public string? RegisterPassword { get; set; }
         #endregion

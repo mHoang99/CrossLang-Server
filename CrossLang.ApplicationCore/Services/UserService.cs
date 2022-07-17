@@ -16,8 +16,10 @@ namespace CrossLang.ApplicationCore.Services
 
         protected override void BeforeAdd(ref User entity)
         {
-            base.BeforeAdd(ref entity);
-            entity.RoleID = 0;
+            entity.CreatedDate = DateTime.Now;
+            entity.ModifiedDate = DateTime.Now;
+            entity.RoleID = 3;
+            entity.Package = Enums.PackageEnum.Free;
             entity.UserPermission = 0;
 
             entity.Password = CLHasher.BcryptHash(entity.RegisterPassword);

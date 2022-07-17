@@ -4,6 +4,7 @@ using CrossLang.ApplicationCore.Entities;
 using CrossLang.ApplicationCore.Interfaces;
 using CrossLang.ApplicationCore.Interfaces.IRepository;
 using CrossLang.ApplicationCore.Interfaces.IService;
+using CrossLang.DBHelper;
 using CrossLang.Library;
 using CrossLang.Models;
 using Microsoft.AspNetCore.Http;
@@ -99,9 +100,88 @@ namespace CrossLang.ApplicationCore.Services
             {
 
             }
-
-
         }
+
+        protected override void AfterUpdate(Lesson entity, Lesson oldEntity)
+        {
+            base.AfterUpdate(entity, oldEntity);
+
+            LessonContentMongo mongoLessonContent = new LessonContentMongo
+            {
+                LessonID = entity.ID,
+                LessonContent = entity.Content
+            };
+
+
+            ((ILessonRepository)_repository).UpdateLessonContentMongo(entity.ID, mongoLessonContent);
+        }
+
+
+        protected override void AsyncAfterUpdate(Lesson entity, Lesson oldEntity)
+        {
+            base.AsyncAfterUpdate(entity, oldEntity);
+
+            var fcc = new FlashCardCollection
+            {
+                LessonID = entity.ID
+            };
+
+
+            var flashCardCollection = _flashCardCollectionRepository.GetEntityByColumns(fcc, new List<string> { nameof(FlashCardCollection.LessonID) });
+
+            if (flashCardCollection != null)
+            {
+                var tempfc = new FlashCard
+                {
+                    FlashCardCollectionID = flashCardCollection.ID
+                };
+
+                var flashCards = _flashCardRepository.GetEntitiesByColumns(tempfc, new List<string> { nameof(FlashCard.FlashCardCollectionID) });
+
+                var newDictionaryWordIds = entity.DictionaryWordIDs?.FindAll(x =>
+                {
+                    return !flashCards.Exists(y => x == y.ID);
+                });
+
+                var removedflashCardIds = flashCards?.FindAll(x =>
+                {
+                    return !entity.DictionaryWordIDs?.Exists(y => y == x.ID) ?? false;
+                }).Select(x => x.ID).ToList();
+
+                //Thêm mới
+                AddNewFlashCards(newDictionaryWordIds, flashCardCollection.ID);
+
+                //Xoá
+                RemoveFlashCards(removedflashCardIds, flashCardCollection.ID);
+            }
+        }
+
+
+        private void AddNewFlashCards(List<long> wordsIDs, long collectionID)
+        {
+            var newFlashCards = wordsIDs.Select(x => new FlashCard
+            {
+                UserID = _sessionData.ID,
+                CreatedBy = _sessionData.Username,
+                ModifiedBy = _sessionData.Username,
+                DictionaryWordID = x,
+                FlashCardCollectionID = collectionID,
+                EntityState = Enums.EntityState.ADD
+            });
+
+            foreach (var fc in newFlashCards)
+            {
+                var res = _flashCardRepository.Add(fc);
+            }
+        }
+
+        private void RemoveFlashCards(List<long> flashCardIds, long collectionID)
+        {
+            _flashCardRepository.DeleteByIDs(flashCardIds);
+
+            _flashCardCollectionRepository.RemoveUserProgressOfCollectionByFlashCardIDs(collectionID, flashCardIds);
+        }
+
 
         protected override void AsyncAfterDelete(Lesson oldEntity)
         {

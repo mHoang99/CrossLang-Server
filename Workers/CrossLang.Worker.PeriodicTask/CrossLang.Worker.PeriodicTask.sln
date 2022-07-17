@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1700.5
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossLang.Worker.PeriodicTask", "CrossLang.Worker.PeriodicTask.csproj", "{039A2DB0-2B70-4F44-AC11-1DC462E504BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossLang.Library", "..\..\CrossLang.Library\CrossLang.Library.csproj", "{15A447C5-70E3-4612-8B28-692E63531DB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossLang.Models", "..\..\CrossLang.Models\CrossLang.Models.csproj", "{8CA23FF0-43BF-4E24-A6F5-C03BF12D892B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossLang.DBHelper", "..\..\CrossLang.DBHelper\CrossLang.DBHelper.csproj", "{353FD838-9905-4FC3-B10B-330F0839E66D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossLang.QueueHelper", "..\..\CrossLang.QueueHelper\CrossLang.QueueHelper.csproj", "{41BC94AE-07B4-49D1-8F4F-A2A1041DD64C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{039A2DB0-2B70-4F44-AC11-1DC462E504BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{039A2DB0-2B70-4F44-AC11-1DC462E504BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{039A2DB0-2B70-4F44-AC11-1DC462E504BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{039A2DB0-2B70-4F44-AC11-1DC462E504BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15A447C5-70E3-4612-8B28-692E63531DB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15A447C5-70E3-4612-8B28-692E63531DB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15A447C5-70E3-4612-8B28-692E63531DB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15A447C5-70E3-4612-8B28-692E63531DB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CA23FF0-43BF-4E24-A6F5-C03BF12D892B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CA23FF0-43BF-4E24-A6F5-C03BF12D892B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CA23FF0-43BF-4E24-A6F5-C03BF12D892B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CA23FF0-43BF-4E24-A6F5-C03BF12D892B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{353FD838-9905-4FC3-B10B-330F0839E66D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{353FD838-9905-4FC3-B10B-330F0839E66D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{353FD838-9905-4FC3-B10B-330F0839E66D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{353FD838-9905-4FC3-B10B-330F0839E66D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41BC94AE-07B4-49D1-8F4F-A2A1041DD64C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41BC94AE-07B4-49D1-8F4F-A2A1041DD64C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41BC94AE-07B4-49D1-8F4F-A2A1041DD64C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41BC94AE-07B4-49D1-8F4F-A2A1041DD64C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {63378A31-3095-4DD6-B729-EF8435D1EBA3}
+	EndGlobalSection
+EndGlobal

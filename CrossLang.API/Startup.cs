@@ -4,7 +4,6 @@ using Microsoft.OpenApi.Models;
 using CrossLang.ApplicationCore;
 using CrossLang.ApplicationCore.Interfaces;
 using CrossLang.Infrastructure;
-using CrossLang.Infrastructure.Database;
 using CrossLang.API.Middlewares;
 using Newtonsoft.Json.Serialization;
 using System.Text;

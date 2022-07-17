@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "jKG1+znbZo0HVWojBXUCDJze3Fk8UXKtr5onMnIbUQznP3YtlAbERu6ED/V4OHwNKPwRTorBL/ljX9lFN3duQw==",
+  "dgSpecHash": "nHRYsg7KlF+rGrCKSvvECkzKgagWqDIWe/3txgX8S+MRq/hIHziqQXu5R+T76LxaytgMwQjKt3kvcN69e3yfuA==",
   "success": true,
   "projectFilePath": "/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.QueueHelper/CrossLang.QueueHelper.csproj",
   "expectedPackageFiles": [

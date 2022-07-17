@@ -111,7 +111,7 @@ namespace CrossLang.Library
             }
         }
 
-        public long RoleID
+        public int RoleID
         {
             get
             {
@@ -120,7 +120,7 @@ namespace CrossLang.Library
                 {
                     return 0;
                 }
-                return long.Parse(claim.Value);
+                return int.Parse(claim.Value);
             }
         }
 
@@ -128,7 +128,7 @@ namespace CrossLang.Library
         {
             get
             {
-                var claim = this.Claims.ToList().Find(x => x.Type == "email");
+                var claim = this.Claims.ToList().Find(x => x.Type == ClaimTypes.Email);
                 if (claim == null)
                 {
                     return "";

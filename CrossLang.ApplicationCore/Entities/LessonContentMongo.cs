@@ -9,6 +9,7 @@ namespace CrossLang.ApplicationCore.Entities
 	{
         [BsonId]
         [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
+        [BsonIgnoreIfDefault]
         public string ID { get; set; }
 
         public long LessonID { get; set; }

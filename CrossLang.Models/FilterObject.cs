@@ -5,6 +5,6 @@ namespace CrossLang.Models
 	{
 		public string FieldName { get; set; }
 		public int Operator { get; set; }
-        public List<dynamic> ContainedValues { get; set; }
+        public List<dynamic>? ContainedValues { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using CrossLang.ApplicationCore.Entities;
+using CrossLang.Models;
 using MongoDB.Driver;
 
 namespace CrossLang.ApplicationCore.Interfaces.IRepository
@@ -15,6 +16,7 @@ namespace CrossLang.ApplicationCore.Interfaces.IRepository
 
         public List<QuestionMongo> GetExerciseQuestionsMongo(long exerciseID);
 
+        public List<QuestionMongo> GetExercisesQuestionsMongo(List<long> exerciseIDs);
 
         public DeleteResult DeleteExerciseQuestionsMongo(long exerciseID);
 
@@ -26,6 +28,10 @@ namespace CrossLang.ApplicationCore.Interfaces.IRepository
         public List<ExerciseAttempMongo> GetExerciseAttempMongo(long exerciseID);
 
         public List<ExerciseAttempMongo> GetAttempHistory(long exerciseId);
+
+        public (List<ExerciseAttempMongo>, int) QueryExerciseAttempList(ExerciseAttempMongo entity, List<FilterObject> filters);
+
+        public List<long> GetAllUsersDidExercise(long exerciseId);
     }
 
 }

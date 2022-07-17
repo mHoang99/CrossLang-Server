@@ -940,6 +940,7 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "BCrypt.Net-Next": "4.0.3",
+          "CrossLang.DBHelper": "1.0.0",
           "CrossLang.Library": "1.0.0",
           "CrossLang.Models": "1.0.0",
           "CrossLang.QueueHelper": "1.0.0",
@@ -976,11 +977,29 @@
           "bin/placeholder/CrossLang.Authentication.dll": {}
         }
       },
+      "CrossLang.DBHelper/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "CrossLang.Library": "1.0.0",
+          "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
+          "MongoDB.Driver": "2.16.1",
+          "MySqlConnector": "2.1.10",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "bin/placeholder/CrossLang.DBHelper.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CrossLang.DBHelper.dll": {}
+        }
+      },
       "CrossLang.Infrastructure/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "CrossLang.ApplicationCore": "1.0.0",
+          "CrossLang.DBHelper": "1.0.0",
           "CrossLang.Library": "1.0.0",
           "CrossLang.Models": "1.0.0",
           "Dapper": "2.0.123",
@@ -2585,6 +2604,11 @@
       "path": "../CrossLang.Authentication/CrossLang.Authentication.csproj",
       "msbuildProject": "../CrossLang.Authentication/CrossLang.Authentication.csproj"
     },
+    "CrossLang.DBHelper/1.0.0": {
+      "type": "project",
+      "path": "../CrossLang.DBHelper/CrossLang.DBHelper.csproj",
+      "msbuildProject": "../CrossLang.DBHelper/CrossLang.DBHelper.csproj"
+    },
     "CrossLang.Infrastructure/1.0.0": {
       "type": "project",
       "path": "../CrossLang.Infrastructure/CrossLang.Infrastructure.csproj",
@@ -2712,7 +2736,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.301/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.302/RuntimeIdentifierGraph.json"
       }
     }
   }

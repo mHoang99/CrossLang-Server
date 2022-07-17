@@ -419,6 +419,23 @@ namespace CrossLang.ApplicationCore
                             }
                         }
                     }
+
+                    //Kiểm tra edit role
+                    if (property.IsDefined(typeof(EditPrivilege), false) && entity.EntityState == EntityState.UPDATE)
+                    {
+                        var attr = property.GetCustomAttributes(typeof(EditPrivilege), false).FirstOrDefault() as EditPrivilege;
+
+                        var roleID = attr?.Value;
+
+                        if ((roleID ?? 0) < _sessionData.RoleID)
+                        {
+                            isValid = false;
+                            serviceResult.SuccessState = false;
+                            serviceResult.UserMsg = string.Format(Properties.Resources.CrossLang_ResponseMessage_NoPermission, propertyDisplayName?.DisplayName ?? propertyName);
+                            serviceResult.DevMsg = string.Format(Properties.Resources.CrossLang_ResponseMessage_NoPermission, propertyName);
+                            break;
+                        }
+                    }
                 }
             }
             return isValid && CustomValidate(entity, fields);
@@ -557,9 +574,18 @@ namespace CrossLang.ApplicationCore
 
         public ServiceResult UpdateFields(List<string> fields, T entity)
         {
+            entity.EntityState = EntityState.UPDATE;
             if (!Validate(entity, fields))
             {
                 return serviceResult;
+            }
+
+            if(!fields.Exists(x => { return x.Equals("ModifiedDate"); }))
+            {
+                fields.Add("ModifiedDate");
+                entity.ModifiedDate = DateTime.Now;
+                fields.Add("ModifiedBy");
+                entity.ModifiedBy = _sessionData.Username;
             }
 
             var data = _repository.UpdateFields(fields, entity);
@@ -595,6 +621,21 @@ namespace CrossLang.ApplicationCore
                     var x = new Dictionary<string, string>();
                     x.Add("FieldName", property.Name);
                     x.Add("DisplayName", propertyDisplayName?.DisplayName ?? "");
+
+                    var typeName = property.PropertyType.Name;
+                    if (property.PropertyType == typeof(DateTime?))
+                    {
+                        typeName = "DateTime";
+                    }
+                    if (property.PropertyType == typeof(int?))
+                    {
+                        typeName = "int";
+                    }
+                    if (property.PropertyType == typeof(long?))
+                    {
+                        typeName = "long";
+                    }
+                    x.Add("Type", typeName);
                     res.Add(x);
                 }
             }

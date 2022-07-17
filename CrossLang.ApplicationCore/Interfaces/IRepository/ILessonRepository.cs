@@ -10,7 +10,7 @@ namespace CrossLang.ApplicationCore.Interfaces.IRepository
 		void InsertLessonContentMongo(LessonContentMongo entity);
 		List<LessonContentMongo> GetLessonContentMongo(long lessonID);
 		DeleteResult DeleteLessonContentMongo(long lessonID);
-		ReplaceOneResult UpsertLessonContentMongo(long masterID, LessonContentMongo entity);
+		ReplaceOneResult UpdateLessonContentMongo(long masterID, LessonContentMongo entity);
         List<DictionaryWord> GetRelatedWords(long id);
 		List<ExerciseAttempMongo> GetAttempHistory(long lessonId);
 		IEnumerable<IDictionary<string, object>> GetLearningLessonList();

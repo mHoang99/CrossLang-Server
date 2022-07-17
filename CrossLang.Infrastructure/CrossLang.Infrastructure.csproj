@@ -19,6 +19,7 @@
     <ProjectReference Include="..\CrossLang.ApplicationCore\CrossLang.ApplicationCore.csproj" />
     <ProjectReference Include="..\CrossLang.Library\CrossLang.Library.csproj" />
     <ProjectReference Include="..\CrossLang.Models\CrossLang.Models.csproj" />
+    <ProjectReference Include="..\CrossLang.DBHelper\CrossLang.DBHelper.csproj" />
   </ItemGroup>
 
   <ItemGroup>

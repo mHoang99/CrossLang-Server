@@ -5,6 +5,7 @@ using CrossLang.ApplicationCore.Interfaces.IRepository;
 using CrossLang.Library;
 using System.Data;
 using Dapper;
+using CrossLang.DBHelper;
 
 namespace CrossLang.Infrastructure
 {
@@ -38,6 +39,15 @@ namespace CrossLang.Infrastructure
             };
 
             return dict;
+        }
+
+        public void RemoveUserProgressOfCollectionByFlashCardIDs(long collectionID, List<long> flashCardIDs)
+        {
+            var flashCardIdsStr = string.Join(',', flashCardIDs);
+
+            var query = $"Delete fccpum FROM flash_card_collection_progress_user_mapping fccpum JOIN flash_card fc ON fccpum.FlashCardID = fc.ID WHERE fc.FlashCardCollectionID = {collectionID} AND fc.ID IN ({flashCardIdsStr})";
+
+            _dbConnection.Execute(query);
         }
     }
 }

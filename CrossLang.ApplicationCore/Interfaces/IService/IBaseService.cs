@@ -45,6 +45,7 @@ namespace CrossLang.ApplicationCore.Interfaces
         /// <param name="id">Khóa chính</param>
         /// <returns>Thông tin trả vềL</returns>
         ServiceResult Update(long id, T entity);
+
         /// <summary>
         /// Xóa bản ghi
         /// </summary>

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+
 namespace CrossLang.Library
 {
     /// <summary>
@@ -133,5 +135,21 @@ namespace CrossLang.Library
         }
         #endregion
     }
+
+    [AttributeUsage(AttributeTargets.Property)]
+    public class EditPrivilege : Attribute
+    {
+        #region Properties
+        public int Value { get; set; }
+        #endregion
+
+        #region Constructor
+        public EditPrivilege(int roleID)
+        {
+            Value = roleID;
+        }
+        #endregion
+    }
 }
+
 

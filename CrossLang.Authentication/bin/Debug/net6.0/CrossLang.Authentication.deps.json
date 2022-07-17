@@ -621,6 +621,14 @@
           }
         }
       },
+      "MySqlConnector/2.1.10": {
+        "runtime": {
+          "lib/net6.0/MySqlConnector.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.1.10.0"
+          }
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {
@@ -677,6 +685,7 @@
       "CrossLang.ApplicationCore/1.0.0": {
         "dependencies": {
           "BCrypt.Net-Next": "4.0.3",
+          "CrossLang.DBHelper": "1.0.0",
           "CrossLang.Library": "1.0.0",
           "CrossLang.Models": "1.0.0",
           "CrossLang.QueueHelper": "1.0.0",
@@ -692,6 +701,18 @@
         },
         "runtime": {
           "CrossLang.ApplicationCore.dll": {}
+        }
+      },
+      "CrossLang.DBHelper/1.0.0": {
+        "dependencies": {
+          "CrossLang.Library": "1.0.0",
+          "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
+          "MongoDB.Driver": "2.16.1",
+          "MySqlConnector": "2.1.10",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "runtime": {
+          "CrossLang.DBHelper.dll": {}
         }
       },
       "CrossLang.Library/1.0.0": {
@@ -919,6 +940,13 @@
       "path": "mongodb.libmongocrypt/1.5.3",
       "hashPath": "mongodb.libmongocrypt.1.5.3.nupkg.sha512"
     },
+    "MySqlConnector/2.1.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-aVvetx5uRWlfnxXlbybf4t6plnH5IGrXSue8R2ZsBOAH8VfS1GuNYqQ4KREVAzN7JexPbhf41btg8pv34eBTrA==",
+      "path": "mysqlconnector/2.1.10",
+      "hashPath": "mysqlconnector.2.1.10.nupkg.sha512"
+    },
     "Newtonsoft.Json/13.0.1": {
       "type": "package",
       "serviceable": true,
@@ -1004,6 +1032,11 @@
       "hashPath": "system.threading.channels.4.7.1.nupkg.sha512"
     },
     "CrossLang.ApplicationCore/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CrossLang.DBHelper/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

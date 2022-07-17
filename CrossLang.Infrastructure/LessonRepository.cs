@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Data;
 using CrossLang.ApplicationCore.Entities;
 using CrossLang.ApplicationCore.Interfaces;
 using CrossLang.ApplicationCore.Interfaces.IRepository;
+using CrossLang.DBHelper;
 using CrossLang.Library;
 using CrossLang.Models;
 using Dapper;
@@ -38,11 +40,11 @@ namespace CrossLang.Infrastructure
             return collection.DeleteOne(x => x.LessonID == lessonID);
         }
 
-        public ReplaceOneResult UpsertLessonContentMongo(long masterID, LessonContentMongo entity)
+        public ReplaceOneResult UpdateLessonContentMongo(long masterID, LessonContentMongo entity)
         {
             var collection = this.mongoDBContext.GetCollection<LessonContentMongo>();
             var filter = Builders<LessonContentMongo>.Filter.Eq(nameof(LessonContentMongo.LessonID), masterID);
-            return collection.ReplaceOne(filter, entity, new ReplaceOptions { IsUpsert = true });
+            return collection.ReplaceOne(filter, entity);
         }
 
         public List<DictionaryWord> GetRelatedWords(long id)
@@ -64,7 +66,7 @@ namespace CrossLang.Infrastructure
         {
 
             var dicts = _dbConnection.Query(
-            "Select l.*, uls.IsFinished from lesson l LEFT JOIN user_lesson_status uls ON uls.LessonID = l.ID  AND uls.UserID = @UserID WHERE l.ID = @ID;",
+            "Select l.*, uls.IsFinished, lc.Name as LessonCategoryName from lesson l LEFT JOIN lesson_category lc on lc.ID = l.LessonCategoryID LEFT JOIN user_lesson_status uls  ON uls.LessonID = l.ID  AND uls.UserID = @UserID WHERE l.ID = @ID;",
             new
             {
                 @ID = id,
@@ -81,7 +83,7 @@ namespace CrossLang.Infrastructure
         public override IEnumerable<IDictionary<string, object>> GetPreviewById(long id)
         {
             var dicts = _dbConnection.Query(
-            "SELECT l.*, u.Username, u.DateOfBirth, u.FullName, u.Gender, e.PersonalImage, e.Description as PersonalDescription, uls.IsFinished, ex.ID as ExerciseID FROM lesson l LEFT JOIN user u on l.UserID = u.ID LEFT JOIN employee e ON e.ID = u.EmployeeID LEFT JOIN user_lesson_status uls on l.ID = uls.LessonID AND uls.UserID = @UserID  LEFT JOIN exercise ex ON ex.LessonID = l.ID  WHERE l.ID = @ID",
+            "SELECT l.*, u.Username, u.DateOfBirth, u.FullName, u.Gender, u.PersonalImage, u.Description as PersonalDescription, uls.IsFinished, ex.ID as ExerciseID FROM lesson l LEFT JOIN user u on l.UserID = u.ID LEFT JOIN user_lesson_status uls on l.ID = uls.LessonID AND uls.UserID = @UserID  LEFT JOIN exercise ex ON ex.LessonID = l.ID  WHERE l.ID = @ID",
             new
             {
                 @ID = id,
@@ -136,6 +138,27 @@ namespace CrossLang.Infrastructure
             ).Cast<IDictionary<string, object>>();
 
             return lessons;
+        }
+
+        public override List<Lesson> QueryList(Lesson entity, List<FilterObject> filters, string formula, string sortBy, string sortDirection, int pageNum, int pageSize)
+        {
+            var parameters = new DynamicParameters();
+
+            var filterStr = BuildFilterString(entity, filters, formula);
+
+            filters.ForEach(x =>
+            {
+                MappingDbTypeByField(entity, x.FieldName, ref parameters);
+            });
+
+            var res = new List<User>();
+
+
+            var query = $"SELECT * FROM view_lesson T WHERE {filterStr} ORDER BY {sortBy} {sortDirection} LIMIT {pageSize} OFFSET {pageSize * (pageNum - 1)};";
+
+            var resp = (_dbConnection.Query<Lesson>(query, parameters, commandType: CommandType.Text))?.ToList() ?? new List<Lesson>();
+
+            return resp;
         }
     }
 }

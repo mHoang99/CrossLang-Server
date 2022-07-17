@@ -580,6 +580,15 @@
           }
         }
       },
+      "MySqlConnector/2.1.10": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/MySqlConnector.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/MySqlConnector.dll": {}
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
@@ -723,6 +732,23 @@
         },
         "runtime": {
           "lib/netcoreapp3.0/System.Threading.Channels.dll": {}
+        }
+      },
+      "CrossLang.DBHelper/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "CrossLang.Library": "1.0.0",
+          "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
+          "MongoDB.Driver": "2.16.1",
+          "MySqlConnector": "2.1.10",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "compile": {
+          "bin/placeholder/CrossLang.DBHelper.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CrossLang.DBHelper.dll": {}
         }
       },
       "CrossLang.Library/1.0.0": {
@@ -1620,6 +1646,35 @@
         "runtimes/win/native/mongocrypt.dll"
       ]
     },
+    "MySqlConnector/2.1.10": {
+      "sha512": "aVvetx5uRWlfnxXlbybf4t6plnH5IGrXSue8R2ZsBOAH8VfS1GuNYqQ4KREVAzN7JexPbhf41btg8pv34eBTrA==",
+      "type": "package",
+      "path": "mysqlconnector/2.1.10",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net45/MySqlConnector.dll",
+        "lib/net45/MySqlConnector.xml",
+        "lib/net461/MySqlConnector.dll",
+        "lib/net461/MySqlConnector.xml",
+        "lib/net471/MySqlConnector.dll",
+        "lib/net471/MySqlConnector.xml",
+        "lib/net5.0/MySqlConnector.dll",
+        "lib/net5.0/MySqlConnector.xml",
+        "lib/net6.0/MySqlConnector.dll",
+        "lib/net6.0/MySqlConnector.xml",
+        "lib/netcoreapp3.1/MySqlConnector.dll",
+        "lib/netcoreapp3.1/MySqlConnector.xml",
+        "lib/netstandard2.0/MySqlConnector.dll",
+        "lib/netstandard2.0/MySqlConnector.xml",
+        "lib/netstandard2.1/MySqlConnector.dll",
+        "lib/netstandard2.1/MySqlConnector.xml",
+        "logo.png",
+        "mysqlconnector.2.1.10.nupkg.sha512",
+        "mysqlconnector.nuspec"
+      ]
+    },
     "Newtonsoft.Json/13.0.1": {
       "sha512": "ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
       "type": "package",
@@ -1987,6 +2042,11 @@
         "version.txt"
       ]
     },
+    "CrossLang.DBHelper/1.0.0": {
+      "type": "project",
+      "path": "../CrossLang.DBHelper/CrossLang.DBHelper.csproj",
+      "msbuildProject": "../CrossLang.DBHelper/CrossLang.DBHelper.csproj"
+    },
     "CrossLang.Library/1.0.0": {
       "type": "project",
       "path": "../CrossLang.Library/CrossLang.Library.csproj",
@@ -2006,6 +2066,7 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "BCrypt.Net-Next >= 4.0.3",
+      "CrossLang.DBHelper >= 1.0.0",
       "CrossLang.Library >= 1.0.0",
       "CrossLang.Models >= 1.0.0",
       "CrossLang.QueueHelper >= 1.0.0",
@@ -2045,6 +2106,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
+            "/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.DBHelper/CrossLang.DBHelper.csproj": {
+              "projectPath": "/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.DBHelper/CrossLang.DBHelper.csproj"
+            },
             "/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.Library/CrossLang.Library.csproj": {
               "projectPath": "/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.Library/CrossLang.Library.csproj"
             },
@@ -2123,7 +2187,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.301/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.302/RuntimeIdentifierGraph.json"
       }
     }
   }

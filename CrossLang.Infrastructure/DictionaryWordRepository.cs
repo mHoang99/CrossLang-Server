@@ -1,6 +1,7 @@
 ﻿using CrossLang.ApplicationCore.Entities;
 using CrossLang.ApplicationCore.Interfaces;
 using CrossLang.ApplicationCore.Interfaces.IRepository;
+using CrossLang.DBHelper;
 using CrossLang.Library;
 using Dapper;
 using System;

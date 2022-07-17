@@ -150,18 +150,19 @@ namespace CrossLang.ApplicationCore.Entities
 
             string updateQuery = $"UPDATE {tableName} SET";
 
-            var i = 0;
             columnsToUpdate.ForEach((x) =>
             {
-                updateQuery += $" {x} = @{x}";
-
-                if (i < columnsToUpdate.Count())
+                if(x == nameof(ID) || x == nameof(CreatedDate) || x== nameof(CreatedBy))
                 {
+                    return;
+                } 
+                updateQuery += $" {x} = @{x}";
+                
                     updateQuery += ",";
-                }
 
-                i++;
             });
+
+            updateQuery = updateQuery.Substring(0, updateQuery.Length - 1);
 
             return $"{updateQuery} {whereClause};";
         }

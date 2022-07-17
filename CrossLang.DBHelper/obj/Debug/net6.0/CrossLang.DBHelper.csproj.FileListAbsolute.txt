@@ -1,0 +1,17 @@
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.DBHelper/bin/Debug/net6.0/CrossLang.DBHelper.deps.json
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.DBHelper/bin/Debug/net6.0/CrossLang.DBHelper.dll
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.DBHelper/bin/Debug/net6.0/CrossLang.DBHelper.pdb
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.DBHelper/bin/Debug/net6.0/CrossLang.Library.dll
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.DBHelper/bin/Debug/net6.0/CrossLang.Models.dll
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.DBHelper/bin/Debug/net6.0/CrossLang.Library.pdb
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.DBHelper/bin/Debug/net6.0/CrossLang.Models.pdb
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.DBHelper/obj/Debug/net6.0/CrossLang.DBHelper.csproj.AssemblyReference.cache
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.DBHelper/obj/Debug/net6.0/CrossLang.DBHelper.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.DBHelper/obj/Debug/net6.0/CrossLang.DBHelper.AssemblyInfoInputs.cache
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.DBHelper/obj/Debug/net6.0/CrossLang.DBHelper.AssemblyInfo.cs
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.DBHelper/obj/Debug/net6.0/CrossLang.DBHelper.csproj.CoreCompileInputs.cache
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.DBHelper/obj/Debug/net6.0/CrossLang.DBHelper.csproj.CopyComplete
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.DBHelper/obj/Debug/net6.0/CrossLang.DBHelper.dll
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.DBHelper/obj/Debug/net6.0/refint/CrossLang.DBHelper.dll
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.DBHelper/obj/Debug/net6.0/CrossLang.DBHelper.pdb
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.DBHelper/obj/Debug/net6.0/ref/CrossLang.DBHelper.dll

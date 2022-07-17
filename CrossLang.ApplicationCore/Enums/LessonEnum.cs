@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CrossLang.ApplicationCore.Enums
 {
-    public enum LessonLevel
+    public enum LessonLevelEnum
     {
         Easy = 1,
         Medium = 2,

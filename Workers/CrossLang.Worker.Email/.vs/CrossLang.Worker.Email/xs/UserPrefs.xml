@@ -1,0 +1,50 @@
+﻿<Properties StartupConfiguration="{5A53D71D-B94A-4768-A2DD-36312374F536}|Default">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.CrossLang.Worker.Email PreferredExecutionTarget="MonoDevelop.Default" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/Workers/CrossLang.Worker.Email/Jobs/SyncJob.cs" relfile="Jobs/SyncJob.cs" line="39" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Worker.cs">
+    <Files>
+      <File FileName="Worker.cs" Line="29" Column="10" />
+      <File FileName="Program.cs" Line="14" Column="14" />
+      <File FileName="appsettings.Development.json" Line="1" Column="1" />
+      <File FileName="appsettings.json" Line="22" Column="1" />
+      <File FileName="Properties/launchSettings.json" Line="1" Column="1" />
+      <File FileName="../../CrossLang.QueueHelper/RabbitMQHelper.cs" Line="55" Column="1" />
+      <File FileName="Jobs/SyncJob.cs" Line="50" Column="1" />
+      <File FileName="Services/EmailService.cs" Line="39" Column="6" />
+      <File FileName="../../CrossLang.Models/EmailMessage.cs" Line="11" Column="6" />
+      <File FileName="Services/IEmailService.cs" Line="12" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="CrossLang.Worker.Email" expanded="True">
+            <Node name="CrossLang.Models" expanded="True" />
+            <Node name="CrossLang.QueueHelper" expanded="True" />
+            <Node name="CrossLang.Worker.Email" expanded="True">
+              <Node name="Dependencies" expanded="True">
+                <Node name="PackageDependencies" expanded="True" />
+              </Node>
+              <Node name="Jobs" expanded="True" />
+              <Node name="Properties" expanded="True" />
+              <Node name="Services" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State>
+          <Value>config</Value>
+          <Value>audioInput</Value>
+          <Value>result</Value>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+</Properties>

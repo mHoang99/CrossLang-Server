@@ -7,8 +7,8 @@ using CrossLang.ApplicationCore.Interfaces.IService;
 using CrossLang.ApplicationCore.Services;
 using CrossLang.Authentication;
 using CrossLang.Authentication.JWT;
+using CrossLang.DBHelper;
 using CrossLang.Infrastructure;
-using CrossLang.Infrastructure.Database;
 using CrossLang.Library;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -83,6 +83,12 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 builder.Services.AddScoped<ILessonCommentService, LessonCommentService>();
 builder.Services.AddScoped<ILessonCommentRepository, LessonCommentRepository>();
+
+builder.Services.AddScoped<IUpgradeCodeService, UpgradeCodeService>();
+builder.Services.AddScoped<IUpgradeCodeRepository, UpgradeCodeRepository>();
+
+builder.Services.AddScoped<IRedeemHistoryService, RedeemHistoryService>();
+builder.Services.AddScoped<IRedeemHistoryRepository, RedeemHistoryRepository>();
 
 builder.Services.AddScoped<INotificationService, NotificationService>();
 

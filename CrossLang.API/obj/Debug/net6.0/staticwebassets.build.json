@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "x3sVUemKQFVhcPCzNuPqf02UNcBqVJDPcuMZhccV3uQ=",
+  "Hash": "lBQfkAp5jPxNJSI/hRrByyyhfNsH9UOc/TlSYfH936o=",
   "Source": "CrossLang.API",
   "BasePath": "_content/CrossLang.API",
   "Mode": "Default",
@@ -51,6 +51,23 @@
       "OriginalItemSpec": "wwwroot/Images/Avatar/139f0835-c2bf-41e0-8b06-b1e5089cd3e1.png"
     },
     {
+      "Identity": "/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.API/wwwroot/Images/Avatar/1a80cdfe-d618-475f-9fa6-be26d13599ed.png",
+      "SourceId": "CrossLang.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.API/wwwroot/",
+      "BasePath": "_content/CrossLang.API",
+      "RelativePath": "Images/Avatar/1a80cdfe-d618-475f-9fa6-be26d13599ed.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Images/Avatar/1a80cdfe-d618-475f-9fa6-be26d13599ed.png"
+    },
+    {
       "Identity": "/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.API/wwwroot/Images/Avatar/25fcb4dc-7cc7-4ff9-bd3c-a95de1f02c7e.png",
       "SourceId": "CrossLang.API",
       "SourceType": "Discovered",
@@ -83,6 +100,57 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/Images/Avatar/cce2f34d-38ac-4a6a-a5fb-ded91af7d21c.png"
+    },
+    {
+      "Identity": "/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.API/wwwroot/Images/Avatar/d751e292-56ce-41af-ac91-05f4ea4b96a8.png",
+      "SourceId": "CrossLang.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.API/wwwroot/",
+      "BasePath": "_content/CrossLang.API",
+      "RelativePath": "Images/Avatar/d751e292-56ce-41af-ac91-05f4ea4b96a8.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Images/Avatar/d751e292-56ce-41af-ac91-05f4ea4b96a8.png"
+    },
+    {
+      "Identity": "/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.API/wwwroot/Images/PersonalImage/32eb632e-fcf7-4b34-96d8-73210b3cc20b.jpeg",
+      "SourceId": "CrossLang.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.API/wwwroot/",
+      "BasePath": "_content/CrossLang.API",
+      "RelativePath": "Images/PersonalImage/32eb632e-fcf7-4b34-96d8-73210b3cc20b.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Images/PersonalImage/32eb632e-fcf7-4b34-96d8-73210b3cc20b.jpeg"
+    },
+    {
+      "Identity": "/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.API/wwwroot/Images/PersonalImage/e963c157-286b-4a25-90d1-93e19e97ce2e.jpeg",
+      "SourceId": "CrossLang.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.API/wwwroot/",
+      "BasePath": "_content/CrossLang.API",
+      "RelativePath": "Images/PersonalImage/e963c157-286b-4a25-90d1-93e19e97ce2e.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Images/PersonalImage/e963c157-286b-4a25-90d1-93e19e97ce2e.jpeg"
     }
   ]
 }

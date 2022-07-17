@@ -54,6 +54,9 @@ namespace CrossLang.ApplicationCore.Interfaces
         /// <param name="id">Khóa chính</param>
         /// <returns>Số bản ghi được thay đổi</returns>
         int Delete(T oldEntity, string whereClause = "WHERE 1 = 1");
+
+        void DeleteByIDs(List<long>? ids);
+
         /// <summary>
         /// Lấy bản ghi theo tiêu chí
         /// </summary>
@@ -74,6 +77,8 @@ namespace CrossLang.ApplicationCore.Interfaces
         IEnumerable<IDictionary<string, object>> GetPreviewById(long id);
 
         T GetEntityByColumns(T entity, List<string> columns);
+
+        public List<T> GetEntitiesByColumns(T entity, List<string> columns);
         #endregion
 
 

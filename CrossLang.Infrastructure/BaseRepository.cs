@@ -9,6 +9,7 @@ using CrossLang.ApplicationCore.Entities;
 using CrossLang.ApplicationCore.Enums;
 using CrossLang.Library;
 using CrossLang.Models;
+using CrossLang.DBHelper;
 
 namespace CrossLang.Infrastructure
 {
@@ -110,7 +111,7 @@ namespace CrossLang.Infrastructure
                 try
                 {
                     var parameters = MappingDbType(entity);
-                    rowsAffected = _dbConnection.Execute(entity.BuildUpdateQuery(whereClause: whereClause), parameters, commandType: CommandType.StoredProcedure, transaction: transaction);
+                    rowsAffected = _dbConnection.Execute(entity.BuildUpdateQuery(whereClause: whereClause), parameters, commandType: CommandType.Text, transaction: transaction);
                     transaction.Commit();
                 }
                 catch (Exception)
@@ -290,7 +291,7 @@ namespace CrossLang.Infrastructure
         /// <param name="pageNum"></param>
         /// <param name="pageSize"></param>
         /// <returns></returns>
-        public List<T> QueryList(T entity, List<FilterObject> filters, string formula, string sortBy, string sortDirection, int pageNum, int pageSize)
+        public virtual List<T> QueryList(T entity, List<FilterObject> filters, string formula, string sortBy, string sortDirection, int pageNum, int pageSize)
         {
             var parameters = new DynamicParameters();
 
@@ -320,7 +321,7 @@ namespace CrossLang.Infrastructure
         /// <param name="pageNum"></param>
         /// <param name="pageSize"></param>
         /// <returns></returns>
-        public List<dynamic> QueryListByView(string viewName, T entity, List<FilterObject> filters, string formula, string sortBy, string sortDirection, int pageNum, int pageSize)
+        public virtual List<dynamic> QueryListByView(string viewName, T entity, List<FilterObject> filters, string formula, string sortBy, string sortDirection, int pageNum, int pageSize)
         {
             var parameters = new DynamicParameters();
 
@@ -624,6 +625,51 @@ namespace CrossLang.Infrastructure
 
             return res;
         }
+
+        public List<T> GetEntitiesByColumns(T entity, List<string> columns)
+        {
+            var dynamicParameters = new DynamicParameters();
+
+            var wherePhrase = "";
+
+            foreach (var column in columns)
+            {
+                wherePhrase = $"{wherePhrase} {column} = @{column} AND ";
+                dynamicParameters.Add(column, entity.GetType().GetProperty(column)?.GetValue(entity));
+            }
+
+            wherePhrase = $"{wherePhrase} 1 = 1";
+
+            var tableName = typeof(T).GetTableName();
+
+            var query = $"SELECT * FROM {tableName} WHERE {wherePhrase};";
+
+            var res = _dbConnection.Query<T>(query, dynamicParameters).ToList();
+
+            return res;
+        }
+
+
+        public List<User> getUsers(List<long> ids)
+        {
+            var resp = new List<User>();
+
+            var query = $"SELECT * FROM user WHERE ID in ({string.Join(',', ids)});";
+
+            resp = (_dbConnection.Query<User>(query, commandType: CommandType.Text))?.ToList() ?? new List<User>();
+
+            return resp;
+        }
+
+        public void DeleteByIDs(List<long>? ids)
+        {
+            var idsString = string.Join(",", ids);
+
+            var query = $"DELETE FROM {_tableName} where ID in ({idsString})";
+
+            _dbConnection.ExecuteAsync(query);
+        }
+
 
 
         #endregion

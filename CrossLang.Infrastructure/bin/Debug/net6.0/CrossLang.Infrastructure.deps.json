@@ -9,6 +9,7 @@
       "CrossLang.Infrastructure/1.0.0": {
         "dependencies": {
           "CrossLang.ApplicationCore": "1.0.0",
+          "CrossLang.DBHelper": "1.0.0",
           "CrossLang.Library": "1.0.0",
           "CrossLang.Models": "1.0.0",
           "Dapper": "2.0.123",
@@ -663,6 +664,7 @@
       "CrossLang.ApplicationCore/1.0.0": {
         "dependencies": {
           "BCrypt.Net-Next": "4.0.3",
+          "CrossLang.DBHelper": "1.0.0",
           "CrossLang.Library": "1.0.0",
           "CrossLang.Models": "1.0.0",
           "CrossLang.QueueHelper": "1.0.0",
@@ -678,6 +680,18 @@
         },
         "runtime": {
           "CrossLang.ApplicationCore.dll": {}
+        }
+      },
+      "CrossLang.DBHelper/1.0.0": {
+        "dependencies": {
+          "CrossLang.Library": "1.0.0",
+          "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
+          "MongoDB.Driver": "2.16.1",
+          "MySqlConnector": "2.1.10",
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "runtime": {
+          "CrossLang.DBHelper.dll": {}
         }
       },
       "CrossLang.Library/1.0.0": {
@@ -983,6 +997,11 @@
       "hashPath": "system.threading.channels.4.7.1.nupkg.sha512"
     },
     "CrossLang.ApplicationCore/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CrossLang.DBHelper/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

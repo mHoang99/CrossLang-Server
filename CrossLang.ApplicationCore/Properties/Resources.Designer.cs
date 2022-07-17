@@ -206,5 +206,15 @@ namespace CrossLang.ApplicationCore.Properties {
                 return ResourceManager.GetString("CrossLang_ResponseMessage_Duplicate_Email", resourceCulture);
             }
         }
+
+        /// <summary>
+        /// </summary>
+        internal static string CrossLang_ResponseMessage_NoPermission
+        {
+            get
+            {
+                return ResourceManager.GetString("CrossLang.ResponseMessage.NoPermission", resourceCulture);
+            }
+        }
     }
 }

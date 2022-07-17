@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>dotnet-CrossLang.Worker.PeriodicTask-0B70DDE8-6819-43DB-8571-3F195B3AB100</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
+    <PackageReference Include="Dapper" Version="2.0.123" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\CrossLang.Models\CrossLang.Models.csproj" />
+    <ProjectReference Include="..\..\CrossLang.Library\CrossLang.Library.csproj" />
+    <ProjectReference Include="..\..\CrossLang.DBHelper\CrossLang.DBHelper.csproj" />
+    <ProjectReference Include="..\..\CrossLang.QueueHelper\CrossLang.QueueHelper.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Jobs\" />
+    <None Remove="Entities\" />
+    <None Remove="Dapper" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Jobs\" />
+    <Folder Include="Entities\" />
+  </ItemGroup>
+</Project>

@@ -62,3 +62,5 @@ D:/Classes/Thesis/CrossLang/cross-lang-server/CrossLang.Infrastructure/bin/Debug
 /Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.Infrastructure/obj/Debug/net6.0/refint/CrossLang.Infrastructure.dll
 /Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.Infrastructure/obj/Debug/net6.0/CrossLang.Infrastructure.pdb
 /Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.Infrastructure/obj/Debug/net6.0/ref/CrossLang.Infrastructure.dll
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.Infrastructure/bin/Debug/net6.0/CrossLang.DBHelper.dll
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.Infrastructure/bin/Debug/net6.0/CrossLang.DBHelper.pdb

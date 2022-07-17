@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CrossLang.Library;
+using CrossLang.DBHelper;
 
 namespace CrossLang.Infrastructure
 {
@@ -28,7 +29,6 @@ namespace CrossLang.Infrastructure
         {
             var rowsAffected = 0;
 
-            _dbConnection.Open();
             using (var transaction = _dbConnection.BeginTransaction())
             {
                 try

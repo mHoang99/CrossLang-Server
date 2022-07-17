@@ -247,3 +247,5 @@ D:/Classes/Thesis/CrossLang/cross-lang-server/CrossLang.API/bin/Debug/net6.0/Cro
 /Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.API/obj/Debug/net6.0/CrossLang.API.pdb
 /Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.API/obj/Debug/net6.0/CrossLang.API.genruntimeconfig.cache
 /Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.API/obj/Debug/net6.0/ref/CrossLang.API.dll
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.API/bin/Debug/net6.0/CrossLang.DBHelper.dll
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.API/bin/Debug/net6.0/CrossLang.DBHelper.pdb
