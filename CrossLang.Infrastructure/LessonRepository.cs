@@ -83,7 +83,7 @@ namespace CrossLang.Infrastructure
         public override IEnumerable<IDictionary<string, object>> GetPreviewById(long id)
         {
             var dicts = _dbConnection.Query(
-            "SELECT l.*, u.Username, u.DateOfBirth, u.FullName, u.Gender, u.PersonalImage, u.Description as PersonalDescription, uls.IsFinished, ex.ID as ExerciseID FROM lesson l LEFT JOIN user u on l.UserID = u.ID LEFT JOIN user_lesson_status uls on l.ID = uls.LessonID AND uls.UserID = @UserID  LEFT JOIN exercise ex ON ex.LessonID = l.ID  WHERE l.ID = @ID",
+            "SELECT l.*, u.Username, u.DateOfBirth, u.FullName, u.Gender, u.PersonalImage, u.Description as PersonalDescription, uls.IsFinished, ex.ID as ExerciseID, lc.Name as CategoryName FROM lesson l LEFT JOIN lesson_category lc on l.LessonCategoryID = lc.ID LEFT JOIN user u on l.UserID = u.ID LEFT JOIN user_lesson_status uls on l.ID = uls.LessonID AND uls.UserID = @UserID  LEFT JOIN exercise ex ON ex.LessonID = l.ID  WHERE l.ID = @ID",
             new
             {
                 @ID = id,

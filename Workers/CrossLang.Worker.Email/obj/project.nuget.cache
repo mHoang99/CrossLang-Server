@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "EmGzlF9BBpfQcxqJPPOVIW0MF/hAliVV2aiFoxToYCkZGEdN0jPFpeh3WN9sRjxDYyd67+ikAyG1ErG48O7ETg==",
+  "dgSpecHash": "68FMvObpGS0c5N+euBCqxV2y1tqYU4Q2rhZUshkEgwLxW5VpvKGazCY96pL5sn190048Rt+oElYpYzxVfSstoQ==",
   "success": true,
   "projectFilePath": "/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/Workers/CrossLang.Worker.Email/CrossLang.Worker.Email.csproj",
   "expectedPackageFiles": [

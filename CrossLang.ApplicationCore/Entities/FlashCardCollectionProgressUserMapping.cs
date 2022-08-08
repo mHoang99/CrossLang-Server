@@ -4,8 +4,8 @@ using CrossLang.Library;
 
 namespace CrossLang.ApplicationCore.Entities
 {
-	[TableName("flash_card_collection_progress_user_mapping")]
-	public class FlashCardCollectionProgressUserMapping : BaseEntity
+	[TableName("flash_card_user_mapping")]
+	public class FlashCardUserMapping : BaseEntity
 	{
 		[DBColumn]
 		[DisplayName("User lien quan")]

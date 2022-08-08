@@ -31,6 +31,16 @@ namespace CrossLang.API.Controllers
             return Ok(res.ConvertToApiReturn());
         }
 
+        [HttpGet("progressList/")]
+        [Authorize]
+        public async Task<IActionResult> GetProgressListCollection([FromQuery] int pageNum, [FromQuery] int pageSize, [FromQuery] bool type)
+        {
+            var res = ((IFlashCardCollectionService)_service).GetListCollectionWithProgress(pageNum,pageSize, type);
+
+            return Ok(res.ConvertToApiReturn());
+        }
+
+
     }
 }
 

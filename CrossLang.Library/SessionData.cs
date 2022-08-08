@@ -149,5 +149,31 @@ namespace CrossLang.Library
                 return claim.Value.ToString();
             }
         }
+
+        public int Package
+        {
+            get
+            {
+                var claim = this.Claims.ToList().Find(x => x.Type == "package");
+                if (claim == null)
+                {
+                    return 0;
+                }
+                return int.Parse(claim.Value.ToString());
+            }
+        }
+
+        public bool IsEmployee
+        {
+            get
+            {
+                var claim = this.Claims.ToList().Find(x => x.Type == "is-employee");
+                if (claim == null)
+                {
+                    return false;
+                }
+                return bool.Parse(claim.Value.ToString());
+            }
+        }
     }
 }

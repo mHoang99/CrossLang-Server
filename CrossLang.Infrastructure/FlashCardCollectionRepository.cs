@@ -6,6 +6,7 @@ using CrossLang.Library;
 using System.Data;
 using Dapper;
 using CrossLang.DBHelper;
+using CrossLang.Models;
 
 namespace CrossLang.Infrastructure
 {
@@ -45,9 +46,33 @@ namespace CrossLang.Infrastructure
         {
             var flashCardIdsStr = string.Join(',', flashCardIDs);
 
-            var query = $"Delete fccpum FROM flash_card_collection_progress_user_mapping fccpum JOIN flash_card fc ON fccpum.FlashCardID = fc.ID WHERE fc.FlashCardCollectionID = {collectionID} AND fc.ID IN ({flashCardIdsStr})";
+            var query = $"Delete fcum FROM flash_card_user_mapping fcum JOIN flash_card fc ON fcum.FlashCardID = fc.ID WHERE fc.FlashCardCollectionID = {collectionID} AND fc.ID IN ({flashCardIdsStr})";
 
             _dbConnection.Execute(query);
+        }
+
+
+        public void UpdateIndividualsProgress(long collectionID)
+        {
+            _dbConnection.Execute("Proc_UpdateProgessOfCollection", new { v_FlashCardCollectionID  = collectionID }, commandType: CommandType.StoredProcedure);
+        }
+
+        public (List<dynamic>, long) QueryListWithProgress(long userID, int pageNum, int pageSize, bool type)
+        {
+
+            var multi = (_dbConnection.QueryMultiple("Proc_GetProgressingCollectionByUser", new {
+                v_UserID = userID,
+                v_Limit = pageSize,
+                v_Offset = (pageNum - 1) * pageSize,
+                v_Type = type
+            },
+            commandType: CommandType.StoredProcedure));
+
+            var listRes = multi.Read<dynamic>().AsList();
+            var total = multi.Read<long>().AsList().FirstOrDefault();
+
+
+            return (listRes, total);
         }
     }
 }

@@ -193,7 +193,7 @@ namespace CrossLang.ApplicationCore.Properties {
         {
             get
             {
-                return ResourceManager.GetString("CrossLang_ResponseMessage_Duplicate_Username", resourceCulture);
+                return ResourceManager.GetString("CrossLang.ResponseMessage.Duplicate.Username", resourceCulture);
             }
         }
 
@@ -203,7 +203,7 @@ namespace CrossLang.ApplicationCore.Properties {
         {
             get
             {
-                return ResourceManager.GetString("CrossLang_ResponseMessage_Duplicate_Email", resourceCulture);
+                return ResourceManager.GetString("CrossLang.ResponseMessage.Duplicate.Email", resourceCulture);
             }
         }
 
@@ -214,6 +214,16 @@ namespace CrossLang.ApplicationCore.Properties {
             get
             {
                 return ResourceManager.GetString("CrossLang.ResponseMessage.NoPermission", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        /// </summary>
+        internal static string CrossLang_ResponseMessage_FlashCardExisted
+        {
+            get
+            {
+                return ResourceManager.GetString("CrossLang.ResponseMessage.FlashCardExisted", resourceCulture);
             }
         }
     }

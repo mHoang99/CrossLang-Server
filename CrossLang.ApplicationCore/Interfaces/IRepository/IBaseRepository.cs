@@ -79,6 +79,8 @@ namespace CrossLang.ApplicationCore.Interfaces
         T GetEntityByColumns(T entity, List<string> columns);
 
         public List<T> GetEntitiesByColumns(T entity, List<string> columns);
+
+        public (List<Dictionary<string, object>>, long) QueryDetailList(T entity, List<FilterObject> filters, string formula, string sortBy, string sortDirection, int pageNum, int pageSize);
         #endregion
 
 

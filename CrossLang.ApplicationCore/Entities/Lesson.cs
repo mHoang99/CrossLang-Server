@@ -107,5 +107,10 @@ namespace CrossLang.ApplicationCore.Entities
             }
         }
 
+        [DBColumn]
+        [DisplayColumn]
+        [DisplayName("Gói")]
+        public int Package { get; set; }
+
     }
 }

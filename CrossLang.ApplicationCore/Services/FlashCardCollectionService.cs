@@ -35,9 +35,26 @@ namespace CrossLang.ApplicationCore.Services
 
         public ServiceResult GetListCollection(FlashCardCollection entity, List<FilterObject> filters, string formula , int pageNum, int pageSize)
         {
-            var list = this._repository.QueryListByView("view_flash_card_collection", entity, filters, formula, "ModifiedDate", "desc", pageNum, pageSize);
+            var list = this._repository.QueryList(entity, filters, formula, "ModifiedDate", "desc", pageNum, pageSize);
 
-            long dbCount = this._repository.QueryListByViewCount("view_flash_card_collection", entity, filters, formula);
+            long dbCount = this._repository.QueryListCount(entity, filters, formula);
+
+            serviceResult.SuccessState = true;
+            serviceResult.Data = new
+            {
+                Data = list,
+                Summary = new
+                {
+                    Count = dbCount
+                }
+            };
+
+            return serviceResult;
+        }
+
+        public ServiceResult GetListCollectionWithProgress(int pageNum, int pageSize, bool type)
+        {
+            var (list, dbCount) = ((IFlashCardCollectionRepository)_repository).QueryListWithProgress(_sessionData.ID, pageNum, pageSize, type);
 
             serviceResult.SuccessState = true;
             serviceResult.Data = new

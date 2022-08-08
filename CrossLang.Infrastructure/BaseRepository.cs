@@ -671,6 +671,11 @@ namespace CrossLang.Infrastructure
         }
 
 
+        public virtual (List<Dictionary<string, object>>, long) QueryDetailList(T entity, List<FilterObject> filters, string formula, string sortBy, string sortDirection, int pageNum, int pageSize)
+        {
+            return (null, 0);
+        }
+
 
         #endregion
     }

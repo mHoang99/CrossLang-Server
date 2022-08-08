@@ -18,6 +18,7 @@ namespace CrossLang.Models
         public object Data { get; set; }
         public string UserMsg { get; set; }
         public string DevMsg { get; set; }
+        public int Code { get; set; }
         #endregion
     }
 }

@@ -79,6 +79,11 @@ namespace CrossLang.API.Controllers
         {
             var res = _service.GetDetailsById(id);
 
+            if(res.Code == 403)
+            {
+                return Forbid();
+            }
+
             return Ok(res.ConvertToApiReturn());
 
         }

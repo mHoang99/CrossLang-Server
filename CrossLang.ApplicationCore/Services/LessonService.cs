@@ -140,22 +140,35 @@ namespace CrossLang.ApplicationCore.Services
 
                 var newDictionaryWordIds = entity.DictionaryWordIDs?.FindAll(x =>
                 {
-                    return !flashCards.Exists(y => x == y.ID);
+                    return !flashCards.Exists(y => x == y.DictionaryWordID);
                 });
 
                 var removedflashCardIds = flashCards?.FindAll(x =>
                 {
-                    return !entity.DictionaryWordIDs?.Exists(y => y == x.ID) ?? false;
+                    return !entity.DictionaryWordIDs?.Exists(y => y == x.DictionaryWordID) ?? false;
                 }).Select(x => x.ID).ToList();
 
-                //Thêm mới
-                AddNewFlashCards(newDictionaryWordIds, flashCardCollection.ID);
+                if((newDictionaryWordIds?.Count ?? 0) > 0 )
+                {
+                    //Thêm mới
+                    AddNewFlashCards(newDictionaryWordIds, flashCardCollection.ID);
+                }
 
-                //Xoá
-                RemoveFlashCards(removedflashCardIds, flashCardCollection.ID);
+                if((removedflashCardIds?.Count ?? 0) > 0)
+                {
+                    //Xoá
+                    RemoveFlashCards(removedflashCardIds, flashCardCollection.ID);
+                }
+
+                //Update lại progress của từng user
+                UpdateIndividualsProgress(flashCardCollection.ID);
             }
         }
 
+        private void UpdateIndividualsProgress(long collectionID)
+        {
+            _flashCardCollectionRepository.UpdateIndividualsProgress(collectionID);
+        }
 
         private void AddNewFlashCards(List<long> wordsIDs, long collectionID)
         {
@@ -177,9 +190,9 @@ namespace CrossLang.ApplicationCore.Services
 
         private void RemoveFlashCards(List<long> flashCardIds, long collectionID)
         {
-            _flashCardRepository.DeleteByIDs(flashCardIds);
-
             _flashCardCollectionRepository.RemoveUserProgressOfCollectionByFlashCardIDs(collectionID, flashCardIds);
+
+            _flashCardRepository.DeleteByIDs(flashCardIds);
         }
 
 
@@ -195,6 +208,15 @@ namespace CrossLang.ApplicationCore.Services
 
             if (entity != null)
             {
+                if (int.TryParse(entity["Package"]?.ToString(), out var package) && !CheckPackagePermission(package) && !_sessionData.IsEmployee)
+                {
+                    serviceResult.SuccessState = false;
+
+                    serviceResult.Code = 403;
+
+                    return serviceResult;
+                }
+
                 var relatedWords = ((ILessonRepository)_repository).GetRelatedWords(id);
 
                 entity.AddOrUpdate("Content", ((ILessonRepository)_repository).GetLessonContentMongo(id)?.FirstOrDefault()?.LessonContent);
@@ -232,6 +254,7 @@ namespace CrossLang.ApplicationCore.Services
                         }
                     });
                 }
+               
             }
 
 

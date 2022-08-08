@@ -1,25 +1,19 @@
 ﻿<Properties StartupConfiguration="{5A53D71D-B94A-4768-A2DD-36312374F536}|Default">
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.CrossLang.Worker.Email PreferredExecutionTarget="MonoDevelop.Default" />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/Workers/CrossLang.Worker.Email/Jobs/SyncJob.cs" relfile="Jobs/SyncJob.cs" line="39" column="1" />
-    </BreakpointStore>
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Worker.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../../CrossLang.Models/EmailMessage.cs">
     <Files>
-      <File FileName="Worker.cs" Line="29" Column="10" />
+      <File FileName="Worker.cs" Line="18" Column="48" />
       <File FileName="Program.cs" Line="14" Column="14" />
       <File FileName="appsettings.Development.json" Line="1" Column="1" />
       <File FileName="appsettings.json" Line="22" Column="1" />
       <File FileName="Properties/launchSettings.json" Line="1" Column="1" />
       <File FileName="../../CrossLang.QueueHelper/RabbitMQHelper.cs" Line="55" Column="1" />
-      <File FileName="Jobs/SyncJob.cs" Line="50" Column="1" />
-      <File FileName="Services/EmailService.cs" Line="39" Column="6" />
-      <File FileName="../../CrossLang.Models/EmailMessage.cs" Line="11" Column="6" />
+      <File FileName="Jobs/SyncJob.cs" Line="31" Column="58" />
+      <File FileName="Services/EmailService.cs" Line="17" Column="38" />
+      <File FileName="../../CrossLang.Models/EmailMessage.cs" Line="13" Column="1" />
       <File FileName="Services/IEmailService.cs" Line="12" Column="1" />
+      <File FileName="../../CrossLang.QueueHelper/RabbitMQMessage.cs" Line="10" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -47,4 +41,11 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/Workers/CrossLang.Worker.Email/Jobs/SyncJob.cs" relfile="Jobs/SyncJob.cs" line="39" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.CrossLang.Worker.Email PreferredExecutionTarget="MonoDevelop.Default" />
+  <MultiItemStartupConfigurations />
 </Properties>

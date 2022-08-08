@@ -21,7 +21,7 @@ namespace CrossLang.ApplicationCore
     /// Base Service
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    /// CREATEDBY: VMHOANG (25/07/2021)
+    /// CREATEDBY: VMHOANG (25/02/2022)
     public class BaseService<T> : IBaseService<T> where T : BaseEntity
     {
         #region Fields
@@ -41,7 +41,9 @@ namespace CrossLang.ApplicationCore
         #endregion
 
         #region Constructor
-        public BaseService(IBaseRepository<T> repository, IHttpContextAccessor httpContextAccessor, SessionData sessionData)
+        public BaseService(IBaseRepository<T> repository,
+            IHttpContextAccessor httpContextAccessor,
+            SessionData sessionData)
         {
             try
             {
@@ -559,17 +561,37 @@ namespace CrossLang.ApplicationCore
         {
             var data = new List<dynamic>();
 
+            BeforeMassAdd(ref entities);
+
             foreach (var entity in entities)
             {
                 var res = Add(entity);
                 data.Add((long)res.Data);
             }
 
+            AfterMassAdd(ref entities);
+            AsyncAfterMassAdd(entities);
+
             serviceResult.SuccessState = true;
             serviceResult.Data = data;
 
             return serviceResult;
         }
+
+        protected virtual void AsyncAfterMassAdd(List<T> entities)
+        {
+
+        }
+
+        protected virtual void AfterMassAdd(ref List<T> entities)
+        {
+        }
+
+        protected virtual void BeforeMassAdd(ref List<T> entities)
+        {
+            
+        }
+
 
 
         public ServiceResult UpdateFields(List<string> fields, T entity)
@@ -644,6 +666,12 @@ namespace CrossLang.ApplicationCore
             serviceResult.Data = res;
 
             return serviceResult;
+        }
+
+
+        public bool CheckPackagePermission(int package)
+        {
+            return _sessionData?.Package >= package;
         }
 
         #endregion

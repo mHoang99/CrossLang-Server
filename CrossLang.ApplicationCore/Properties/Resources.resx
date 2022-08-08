@@ -168,4 +168,7 @@
 	<data name="CrossLang.ResponseMessage.NoPermission" xml:space="preserve">
     <value>Không có quyền sửa {0}</value>
   </data>
+	<data name="CrossLang.ResponseMessage.FlashCardExisted" xml:space="preserve">
+    <value>Từ này đã tồn tại trong bộ sưu tập</value>
+  </data>
 </root>

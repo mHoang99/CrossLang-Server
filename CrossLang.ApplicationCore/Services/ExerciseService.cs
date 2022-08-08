@@ -78,6 +78,15 @@ namespace CrossLang.ApplicationCore.Services
 
             if (exercise != null)
             {
+                if (!CheckPackagePermission(exercise.Package) && !_sessionData.IsEmployee)
+                {
+                    serviceResult.SuccessState = false;
+
+                    serviceResult.Code = 403;
+
+                    return serviceResult;
+                }
+
                 exercise.Questions = ((IExerciseRepository)_repository).GetExerciseQuestionsMongo(id);
 
                 if (_sessionData.RoleID == (int)RoleEnum.USER)

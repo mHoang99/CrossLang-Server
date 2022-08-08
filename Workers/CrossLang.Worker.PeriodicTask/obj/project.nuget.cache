@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "crcluOgvBglNcbIm4CKcRd+3b+U1j/TFyt4tJBHv4h9/6vqTIFdTD/im0IpK4lsXO7qV6fCfsnOAsxkdlDfTJQ==",
+  "dgSpecHash": "NzvZQfM1vqRQrzmvV+P0kHuorTuc+vhFxkCNNRVj8OX51SiYO0M3wEjG+WWhuI1crJRMja65yCyVb4HRlePGiA==",
   "success": true,
   "projectFilePath": "/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/Workers/CrossLang.Worker.PeriodicTask/CrossLang.Worker.PeriodicTask.csproj",
   "expectedPackageFiles": [
