@@ -44,10 +44,8 @@ namespace CrossLang.Infrastructure
         #region Methods
         public IEnumerable<T> Get()
         {
-            var pluralizedName = PluralizeService.Core.PluralizationProvider.Pluralize(_tableName);
-
             //Khởi tạo commandText
-            var entities = _dbConnection.Query<T>($"Proc_Get{pluralizedName}", commandType: CommandType.StoredProcedure);
+            var entities = _dbConnection.Query<T>($"SELECT * FROM {_tableName}", commandType: CommandType.Text);
 
             return entities;
         }
@@ -291,7 +289,7 @@ namespace CrossLang.Infrastructure
         /// <param name="pageNum"></param>
         /// <param name="pageSize"></param>
         /// <returns></returns>
-        public virtual List<T> QueryList(T entity, List<FilterObject> filters, string formula, string sortBy, string sortDirection, int pageNum, int pageSize)
+        public virtual (List<T>, long) QueryList(T entity, List<FilterObject> filters, string formula, string sortBy, string sortDirection, int pageNum, int pageSize)
         {
             var parameters = new DynamicParameters();
 
@@ -309,7 +307,11 @@ namespace CrossLang.Infrastructure
 
             var resp = (_dbConnection.Query<T>(query, parameters, commandType: CommandType.Text))?.ToList() ?? new List<T>();
 
-            return resp;
+            var queryCount = $"SELECT COUNT(*) FROM {_tableName} WHERE {filterStr};";
+
+            var total = (_dbConnection.ExecuteScalar<long>(queryCount, parameters, commandType: CommandType.Text));
+
+            return (resp, total);
         }
 
         /// <summary>
@@ -321,7 +323,7 @@ namespace CrossLang.Infrastructure
         /// <param name="pageNum"></param>
         /// <param name="pageSize"></param>
         /// <returns></returns>
-        public virtual List<dynamic> QueryListByView(string viewName, T entity, List<FilterObject> filters, string formula, string sortBy, string sortDirection, int pageNum, int pageSize)
+        public virtual (List<dynamic>, long) QueryListByView(string viewName, T entity, List<FilterObject> filters, string formula, string sortBy, string sortDirection, int pageNum, int pageSize)
         {
             var parameters = new DynamicParameters();
 
@@ -339,7 +341,11 @@ namespace CrossLang.Infrastructure
 
             var resp = (_dbConnection.Query<dynamic>(query, parameters, commandType: CommandType.Text))?.ToList() ?? new List<dynamic>();
 
-            return resp;
+            var queryCount = $"SELECT COUNT(ID) FROM {viewName} WHERE {filterStr};";
+
+            var total = _dbConnection.ExecuteScalar<long>(queryCount, parameters, commandType: CommandType.Text);
+
+            return (resp, total);
         }
 
         /// <summary>
@@ -351,47 +357,47 @@ namespace CrossLang.Infrastructure
         /// <param name="pageNum"></param>
         /// <param name="pageSize"></param>
         /// <returns></returns>
-        public long QueryListCount(T entity, List<FilterObject> filters, string formula)
-        {
-            var parameters = new DynamicParameters();
+        //public long QueryListCount(T entity, List<FilterObject> filters, string formula)
+        //{
+        //    var parameters = new DynamicParameters();
 
-            var filterStr = BuildFilterString(entity, filters, formula);
+        //    var filterStr = BuildFilterString(entity, filters, formula);
 
-            filters.ForEach(x =>
-            {
-                MappingDbTypeByField(entity, x.FieldName, ref parameters);
-            });
+        //    filters.ForEach(x =>
+        //    {
+        //        MappingDbTypeByField(entity, x.FieldName, ref parameters);
+        //    });
 
-            var res = new List<T>();
-
-
-            var query = $"SELECT COUNT(*) FROM {_tableName} WHERE {filterStr};";
-
-            var resp = (_dbConnection.ExecuteScalar<long>(query, parameters, commandType: CommandType.Text));
-
-            return resp;
-        }
-
-        public long QueryListByViewCount(string viewName, T entity, List<FilterObject> filters, string formula)
-        {
-            var parameters = new DynamicParameters();
-
-            var filterStr = BuildFilterString(entity, filters, formula);
-
-            filters.ForEach(x =>
-            {
-                MappingDbTypeByField(entity, x.FieldName, ref parameters);
-            });
-
-            var res = new List<T>();
+        //    var res = new List<T>();
 
 
-            var query = $"SELECT COUNT(*) FROM {viewName} WHERE {filterStr};";
+        //    var query = $"SELECT COUNT(*) FROM {_tableName} WHERE {filterStr};";
 
-            var resp = (_dbConnection.ExecuteScalar<long>(query, parameters, commandType: CommandType.Text));
+        //    var resp = (_dbConnection.ExecuteScalar<long>(query, parameters, commandType: CommandType.Text));
 
-            return resp;
-        }
+        //    return resp;
+        //}
+
+        //public long QueryListByViewCount(string viewName, T entity, List<FilterObject> filters, string formula)
+        //{
+        //    var parameters = new DynamicParameters();
+
+        //    var filterStr = BuildFilterString(entity, filters, formula);
+
+        //    filters.ForEach(x =>
+        //    {
+        //        MappingDbTypeByField(entity, x.FieldName, ref parameters);
+        //    });
+
+        //    var res = new List<T>();
+
+
+        //    var query = $"SELECT COUNT(*) FROM {viewName} WHERE {filterStr};";
+
+        //    var resp = (_dbConnection.ExecuteScalar<long>(query, parameters, commandType: CommandType.Text));
+
+        //    return resp;
+        //}
 
         /// <summary>
         /// 

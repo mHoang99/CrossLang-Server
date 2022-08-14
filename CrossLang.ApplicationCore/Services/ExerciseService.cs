@@ -179,9 +179,7 @@ namespace CrossLang.ApplicationCore.Services
         /// <returns></returns>
         public virtual ServiceResult QueryList(Exercise entity, List<FilterObject> filters, string formula, string sortBy = "ModifiedDate", string sortDirection = "desc", int pageNum = 1, int pageSize = 10)
         {
-            List<Exercise> list = this._repository.QueryList(entity, filters, formula, sortBy, sortDirection, pageNum, pageSize);
-
-            long dbCount = this._repository.QueryListByViewCount("view_exercise", entity, filters, formula);
+            var (list, dbCount) = this._repository.QueryList(entity, filters, formula, sortBy, sortDirection, pageNum, pageSize);
 
             if (list.Count > 0)
             {

@@ -15,3 +15,5 @@
 /Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.DBHelper/obj/Debug/net6.0/refint/CrossLang.DBHelper.dll
 /Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.DBHelper/obj/Debug/net6.0/CrossLang.DBHelper.pdb
 /Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.DBHelper/obj/Debug/net6.0/ref/CrossLang.DBHelper.dll
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.DBHelper/bin/Debug/net6.0/libmp3lame.32.dll
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.DBHelper/bin/Debug/net6.0/libmp3lame.64.dll

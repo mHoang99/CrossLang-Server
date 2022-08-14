@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>dotnet-Crosslang.Worker.Notification-6F492490-04FA-4AEE-BAAA-FD59C980BCCE</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Dapper" Version="2.0.123" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Microsoft.AspNetCore.SignalR" />
+    <None Remove="Jobs\" />
+    <None Remove="Services\" />
+    <None Remove="Microsoft.AspNetCore" />
+    <None Remove="Microsoft.AspNetCore.Mvc.Core" />
+    <None Remove="Microsoft.AspNetCore.Mvc.Abstractions" />
+    <None Remove="Dapper" />
+    <None Remove="Swashbuckle.AspNetCore" />
+    <None Remove="Hubs\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Jobs\" />
+    <Folder Include="Services\" />
+    <Folder Include="Hubs\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\CrossLang.QueueHelper\CrossLang.QueueHelper.csproj" />
+    <ProjectReference Include="..\..\CrossLang.Models\CrossLang.Models.csproj" />
+    <ProjectReference Include="..\..\CrossLang.Library\CrossLang.Library.csproj" />
+    <ProjectReference Include="..\..\CrossLang.DBHelper\CrossLang.DBHelper.csproj" />
+  </ItemGroup>
+</Project>

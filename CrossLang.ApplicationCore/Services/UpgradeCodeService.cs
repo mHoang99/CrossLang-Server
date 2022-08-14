@@ -58,8 +58,19 @@ namespace CrossLang.ApplicationCore.Services
         {
             var upgradeCode = _repository.GetEntityByColumns(new UpgradeCode { Code = code ?? "" }, new List<string> { "Code" });
 
+            var currentUser = _userRepository.GetEntityById(_sessionData.ID);
+
+
             if (upgradeCode != null)
             {
+                var expDate = DateTime.Now.AddDays(upgradeCode.Period ?? 0);
+
+                if (upgradeCode.Package == currentUser.Package)
+                {
+                    expDate = currentUser.ExpDate?.AddDays(upgradeCode.Period ?? 0) ?? expDate;
+                }
+
+
                 var entity = new RedeemHistory
                 {
                     EntityState = EntityState.ADD,
@@ -70,7 +81,7 @@ namespace CrossLang.ApplicationCore.Services
 
                     Price = upgradeCode.Price,
 
-                    ExpDate = DateTime.Now.AddDays(upgradeCode.Period ?? 0),
+                    ExpDate = expDate,
 
                     UserID = _sessionData.ID,
 
@@ -87,7 +98,7 @@ namespace CrossLang.ApplicationCore.Services
                 {
                     ID = _sessionData.ID,
                     Package = entity.Package,
-                    ExpDate = entity.ExpDate 
+                    ExpDate = expDate
                 };
 
                 var userUpdateFields = new List<string>
@@ -95,7 +106,7 @@ namespace CrossLang.ApplicationCore.Services
                     "Package", "ExpDate"
                 };
 
-                if(upgradeCode.IsTrial ?? false)
+                if (upgradeCode.IsTrial ?? false)
                 {
                     userEntity.IsTrialUsed = true;
                     userUpdateFields.Append("IsTrialUsed");
@@ -106,7 +117,37 @@ namespace CrossLang.ApplicationCore.Services
                 Delete(upgradeCode.ID);
 
                 serviceResult.SuccessState = true;
-                serviceResult.Data = upgradeCode;
+                serviceResult.Data = new
+                {
+                    UpgradeCode = upgradeCode,
+                    Package = upgradeCode.Package,
+                    ExpDate = expDate
+                };
+                return serviceResult;
+            }
+
+            else
+            {
+                serviceResult.SuccessState = false;
+                serviceResult.UserMsg = "Mã không tồn tại";
+                serviceResult.DevMsg = "Mã không tồn tại";
+                return serviceResult;
+            }
+        }
+
+        public ServiceResult ValidateCode(string? code)
+        {
+            var upgradeCode = _repository.GetEntityByColumns(new UpgradeCode { Code = code ?? "" }, new List<string> { "Code" });
+
+            if (upgradeCode != null)
+            {
+                serviceResult.SuccessState = true;
+                serviceResult.Data = new
+                {
+                    Package = upgradeCode.Package,
+                    Period = upgradeCode.Period,
+                    ValidUntil = upgradeCode.ValidUntil,
+                };
                 return serviceResult;
             }
 

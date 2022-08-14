@@ -49,6 +49,10 @@
             "Microsoft.AspNetCore.Http.Abstractions": {
               "target": "Package",
               "version": "[2.2.0, )"
+            },
+            "NAudio.Lame": {
+              "target": "Package",
+              "version": "[2.0.1, )"
             }
           },
           "imports": [

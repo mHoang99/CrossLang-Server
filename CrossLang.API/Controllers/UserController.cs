@@ -119,5 +119,18 @@ namespace CrossLang.API.Controllers
 
             return Ok(res.ConvertToApiReturn());
         }
+
+        /// <summary>
+        /// </summary>
+        /// <returns></returns>
+        [Authorize]
+        [HttpPost("upgrade/validate")]
+        public async Task<IActionResult> ValidateCode([FromBody] RedeemUpgradeCodeRequest req)
+        {
+            var res = upgradeCodeService.ValidateCode(req.Code);
+            //upgradeCodeService.Add
+
+            return Ok(res.ConvertToApiReturn());
+        }
     }
 }

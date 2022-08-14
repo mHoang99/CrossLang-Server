@@ -92,7 +92,7 @@ namespace CrossLang.Infrastructure
             return collection.FindSync<ExerciseAttempMongo>(combineFilter).ToList();
         }
 
-        public override List<Exercise> QueryList(Exercise entity, List<FilterObject> filters, string formula, string sortBy, string sortDirection, int pageNum, int pageSize)
+        public override (List<Exercise>, long) QueryList(Exercise entity, List<FilterObject> filters, string formula, string sortBy, string sortDirection, int pageNum, int pageSize)
         {
             var parameters = new DynamicParameters();
 
@@ -110,7 +110,11 @@ namespace CrossLang.Infrastructure
 
             var resp = (_dbConnection.Query<Exercise>(query, parameters, commandType: CommandType.Text))?.ToList() ?? new List<Exercise>();
 
-            return resp;
+            var queryCount = $"SELECT COUNT(*) FROM view_exercise WHERE {filterStr};";
+
+            var total = (_dbConnection.ExecuteScalar<long>(queryCount, parameters, commandType: CommandType.Text));
+
+            return (resp, total);
         }
 
         public (List<ExerciseAttempMongo>, int) QueryExerciseAttempList(ExerciseAttempMongo entity, List<FilterObject> filters)

@@ -5,13 +5,18 @@ using CrossLang.ApplicationCore.Interfaces.IRepository;
 using CrossLang.ApplicationCore.Interfaces.IService;
 using CrossLang.Library;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
 
 namespace CrossLang.ApplicationCore.Services
 {
     public class UserService : BaseService<User>, IUserService
     {
-        public UserService(IUserRepository repository, IHttpContextAccessor httpContextAccessor, SessionData sessionData) : base(repository, httpContextAccessor, sessionData)
+
+        private readonly IConfiguration _configuration;
+
+        public UserService(IUserRepository repository, IHttpContextAccessor httpContextAccessor, SessionData sessionData, IConfiguration configuration) : base(repository, httpContextAccessor, sessionData)
         {
+            _configuration = configuration;
         }
 
         protected override void BeforeAdd(ref User entity)
@@ -21,7 +26,7 @@ namespace CrossLang.ApplicationCore.Services
             entity.RoleID = 3;
             entity.Package = Enums.PackageEnum.Free;
             entity.UserPermission = 0;
-
+            entity.Avatar = _configuration["DefaultAvatar"];
             entity.Password = CLHasher.BcryptHash(entity.RegisterPassword);
         }
 

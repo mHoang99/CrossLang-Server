@@ -102,7 +102,7 @@ namespace CrossLang.ApplicationCore.Services
                         var result = await recognizer.RecognizeOnceAsync().ConfigureAwait(false);
 
                         var pronunciationResult = PronunciationAssessmentResult.FromResult(result);
-                      
+
 
                         serviceResult.SuccessState = true;
                         serviceResult.Data = pronunciationResult;
@@ -112,6 +112,22 @@ namespace CrossLang.ApplicationCore.Services
             }
 
             return serviceResult;
+        }
+
+        public async Task<byte[]> TextToSpeechAsync(string word)
+        {
+            var config = SpeechConfig.FromSubscription("e8650ddda68d40dca1bc6268aa0e64eb", "southeastasia");
+
+            config.SetProperty(PropertyId.SpeechServiceConnection_EndSilenceTimeoutMs, "3000");
+
+            var referenceText = word;
+
+            using (var synthesizer = new SpeechSynthesizer(config))
+            {
+                var res = await synthesizer.SpeakTextAsync(word);
+
+                return res.AudioData;
+            }
         }
     }
 }

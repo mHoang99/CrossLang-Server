@@ -66,3 +66,5 @@ D:/Classes/Thesis/CrossLang/cross-lang-server/CrossLang.ApplicationCore/bin/Debu
 /Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.ApplicationCore/obj/Debug/net6.0/ref/CrossLang.ApplicationCore.dll
 /Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.ApplicationCore/bin/Debug/net6.0/CrossLang.DBHelper.dll
 /Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.ApplicationCore/bin/Debug/net6.0/CrossLang.DBHelper.pdb
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.ApplicationCore/bin/Debug/net6.0/libmp3lame.32.dll
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.ApplicationCore/bin/Debug/net6.0/libmp3lame.64.dll

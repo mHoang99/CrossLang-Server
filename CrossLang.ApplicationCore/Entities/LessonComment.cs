@@ -22,6 +22,10 @@ namespace CrossLang.ApplicationCore.Entities
         [DBColumn]
         [DisplayName("Trả lời comment")]
         public long? ReplyToID { get; set; }
+
+        public long? ReplyToUserID { get; set; }
+
+        public List<long>? ReplyToUserIDs { get; set; }
     }
 }
 

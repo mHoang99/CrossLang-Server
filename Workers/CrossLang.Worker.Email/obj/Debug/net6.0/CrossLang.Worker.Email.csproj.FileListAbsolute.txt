@@ -60,3 +60,7 @@
 /Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/Workers/CrossLang.Worker.Email/bin/Debug/net6.0/BouncyCastle.Crypto.dll
 /Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/Workers/CrossLang.Worker.Email/bin/Debug/net6.0/System.Security.Cryptography.Pkcs.dll
 /Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/Workers/CrossLang.Worker.Email/bin/Debug/net6.0/runtimes/win/lib/net6.0/System.Security.Cryptography.Pkcs.dll
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/Workers/CrossLang.Worker.Email/bin/Debug/net6.0/libmp3lame.32.dll
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/Workers/CrossLang.Worker.Email/bin/Debug/net6.0/libmp3lame.64.dll
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/Workers/CrossLang.Worker.Email/bin/Debug/net6.0/NAudio.Core.dll
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/Workers/CrossLang.Worker.Email/bin/Debug/net6.0/NAudio.Lame.dll

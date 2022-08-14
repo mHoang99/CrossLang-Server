@@ -52,10 +52,10 @@ namespace CrossLang.API.Controllers
         /// </summary>
         /// <returns></returns>
         [Authorize]
-        [HttpPost("LessonList")]
-        public async Task<IActionResult> GetLessonList([FromBody] FilterRequest<Lesson> filterRequest)
+        [HttpPost("LessonList/{isRelatedToUser}")]
+        public async Task<IActionResult> GetLessonList([FromBody] FilterRequest<Lesson> filterRequest, bool isRelatedToUser)
         {
-            var res = ((ILessonService)_service).GetLessonList(filterRequest.Entity, filterRequest.Filters, filterRequest.Formula, filterRequest.SortBy, filterRequest.SortDirection, filterRequest.PageNum, filterRequest.PageSize) ;
+            var res = ((ILessonService)_service).GetLessonList(filterRequest.Entity, filterRequest.Filters, filterRequest.Formula, filterRequest.SortBy, filterRequest.SortDirection, filterRequest.PageNum, filterRequest.PageSize, isRelatedToUser) ;
 
             return Ok(res.ConvertToApiReturn());
         }

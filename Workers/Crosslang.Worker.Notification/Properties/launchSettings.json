@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "Crosslang.Worker.Notification": {
+      "commandName": "Project",
+      "applicationUrl": "https://localhost:6152;http://localhost:6153",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

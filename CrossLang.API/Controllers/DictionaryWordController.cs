@@ -7,6 +7,8 @@ using CrossLang.Models;
 using System.IO;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
+using System.Net.Http.Headers;
 
 namespace CrossLang.API.Controllers
 {
@@ -21,7 +23,7 @@ namespace CrossLang.API.Controllers
         /// <summary>
         /// </summary>
         /// <returns></returns>
-        [Authorize]
+        [AllowAnonymous]
         [HttpPost("search/text")]
         public async Task<IActionResult> GetSearchResults([FromBody] SearchRequest body)
         {
@@ -40,6 +42,36 @@ namespace CrossLang.API.Controllers
             var res = await ((IDictionaryWordService)_service).PronunciationAssessmentAsync(fileName, word);
 
             return Ok(res.ConvertToApiReturn());
+        }
+
+        /// <summary>
+        /// Lấy theo id
+        /// </summary>
+        /// <param name="id">Id của bản ghi</param>
+        /// <returns></returns>
+        /// CREATED_BY: vmhoang
+        [HttpGet("details/{id}")]
+        [AllowAnonymous]
+        public override async Task<IActionResult> GetDeatails(long id)
+        {
+            return await base.GetDeatails(id);
+
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <returns></returns>
+        [AllowAnonymous]
+        [HttpGet("pronunciation/{word}")]
+        public async Task<HttpResponseMessage> pronunciation(string word)
+        {
+            var res = await ((IDictionaryWordService)_service).TextToSpeechAsync(word);
+
+            HttpResponseMessage response = new HttpResponseMessage(HttpStatusCode.OK);
+            response.Content = new ByteArrayContent(res);
+            response.Content.Headers.ContentType = new MediaTypeHeaderValue("audio/x-wav");
+
+            return response;
         }
 
 

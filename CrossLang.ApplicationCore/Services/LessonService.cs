@@ -41,6 +41,13 @@ namespace CrossLang.ApplicationCore.Services
             _notiService = notificationService;
         }
 
+        protected override void BeforeAdd(ref Lesson entity)
+        {
+            base.BeforeAdd(ref entity);
+
+            entity.UserID = _sessionData.ID;
+        }
+
         protected override void AfterAdd(ref Lesson entity)
         {
             base.AfterAdd(ref entity);
@@ -70,7 +77,9 @@ namespace CrossLang.ApplicationCore.Services
                     LessonID = entity.ID,
                     CreatedBy = _sessionData.Username,
                     ModifiedBy = _sessionData.Username,
-                    EntityState = Enums.EntityState.ADD
+                    EntityState = Enums.EntityState.ADD,
+                    CreatedDate = DateTime.Now,
+                    ModifiedDate = DateTime.Now
                 };
 
 
@@ -87,7 +96,9 @@ namespace CrossLang.ApplicationCore.Services
                         ModifiedBy = _sessionData.Username,
                         DictionaryWordID = x,
                         FlashCardCollectionID = newFCCID,
-                        EntityState = Enums.EntityState.ADD
+                        EntityState = Enums.EntityState.ADD,
+                         CreatedDate = DateTime.Now,
+                        ModifiedDate = DateTime.Now
                     });
 
                     foreach (var fc in flashCards)
@@ -321,12 +332,37 @@ namespace CrossLang.ApplicationCore.Services
             return serviceResult;
         }
 
-        public ServiceResult GetLessonList(Lesson entity, List<FilterObject> filters, string formula, string sortBy, string sortDirection, int pageNum, int pageSize)
+        public ServiceResult GetLessonList(Lesson entity, List<FilterObject> filters, string formula, string sortBy, string sortDirection, int pageNum, int pageSize, bool isRelatedToUser)
         {
-            var lessons = ((ILessonRepository)_repository).GetLessonList(entity, filters, formula, sortBy, sortDirection, pageNum, pageSize);
+            if (isRelatedToUser)
+            {
+                var (lessons, total) = ((ILessonRepository)_repository).GetLessonList(entity, filters, formula, sortBy, sortDirection, pageNum, pageSize);
 
-            serviceResult.SuccessState = true;
-            serviceResult.Data = lessons;
+                serviceResult.SuccessState = true;
+                serviceResult.Data = new
+                {
+                    Data = lessons,
+                    Summary = new
+                    {
+                        Count = total
+                    }
+                }; ;
+            }
+            else
+            {
+                var (lessons, total) = ((ILessonRepository)_repository).QueryListByView("view_lesson", entity, filters, formula, sortBy, sortDirection, pageNum, pageSize);
+
+                serviceResult.SuccessState = true;
+                serviceResult.Data = serviceResult.Data = new
+                {
+                    Data = lessons,
+                    Summary = new
+                    {
+                        Count = total
+                    }
+                };
+            }
+
 
             return serviceResult;
         }

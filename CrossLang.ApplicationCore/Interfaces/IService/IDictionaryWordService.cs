@@ -14,6 +14,7 @@ namespace CrossLang.ApplicationCore.Interfaces.IService
 
         public Task<ServiceResult> PronunciationAssessmentAsync(string fileName, string word);
 
+        public Task<byte[]> TextToSpeechAsync(string word);
     }
 
 }

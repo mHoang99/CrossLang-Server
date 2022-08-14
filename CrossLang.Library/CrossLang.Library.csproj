@@ -9,10 +9,14 @@
   <ItemGroup>
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+    <PackageReference Include="NAudio.Lame" Version="2.0.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\CrossLang.Models\CrossLang.Models.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="NAudio.Lame" />
+  </ItemGroup>
 </Project>

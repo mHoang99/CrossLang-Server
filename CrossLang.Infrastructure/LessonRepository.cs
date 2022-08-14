@@ -117,7 +117,7 @@ namespace CrossLang.Infrastructure
             return lessons;
         }
 
-        public IEnumerable<IDictionary<string, object>> GetLessonList(Lesson entity, List<FilterObject> filters, string formula, string sortBy, string sortDirection, int pageNum, int pageSize)
+        public (IEnumerable<IDictionary<string, object>>, long) GetLessonList(Lesson entity, List<FilterObject> filters, string formula, string sortBy, string sortDirection, int pageNum, int pageSize)
         {
             var parameters = new DynamicParameters();
 
@@ -131,16 +131,18 @@ namespace CrossLang.Infrastructure
 
             var query = $"SELECT * FROM (SELECT l.*, u.Username, u.FullName, u.Avatar, uls.IsFinished, uls.UserID as LearnerID from lesson l JOIN user_lesson_status uls ON l.ID = uls.LessonID AND uls.UserID = @LearnerID JOIN user u ON l.UserID = u.ID) AS T WHERE {filterStr} ORDER BY {sortBy} {sortDirection} LIMIT {pageSize} OFFSET {pageSize * (pageNum - 1)};";
 
-
             var lessons = _dbConnection.Query(query
             ,
             parameters
             ).Cast<IDictionary<string, object>>();
 
-            return lessons;
+            var queryCount = $"SELECT COUNT(*) FROM (SELECT l.*, u.Username, u.FullName, u.Avatar, uls.IsFinished, uls.UserID as LearnerID from lesson l JOIN user_lesson_status uls ON l.ID = uls.LessonID AND uls.UserID = @LearnerID JOIN user u ON l.UserID = u.ID) AS T WHERE {filterStr};";
+
+            var count = _dbConnection.ExecuteScalar<long>(queryCount, parameters);
+            return (lessons, count);
         }
 
-        public override List<Lesson> QueryList(Lesson entity, List<FilterObject> filters, string formula, string sortBy, string sortDirection, int pageNum, int pageSize)
+        public override (List<Lesson>, long) QueryList(Lesson entity, List<FilterObject> filters, string formula, string sortBy, string sortDirection, int pageNum, int pageSize)
         {
             var parameters = new DynamicParameters();
 
@@ -158,7 +160,11 @@ namespace CrossLang.Infrastructure
 
             var resp = (_dbConnection.Query<Lesson>(query, parameters, commandType: CommandType.Text))?.ToList() ?? new List<Lesson>();
 
-            return resp;
+            var queryCount = $"SELECT COUNT(*) FROM view_lesson WHERE {filterStr};";
+
+            var total = (_dbConnection.ExecuteScalar<long>(queryCount, parameters, commandType: CommandType.Text));
+
+            return (resp, total);
         }
     }
 }

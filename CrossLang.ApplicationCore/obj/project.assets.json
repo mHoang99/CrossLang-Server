@@ -589,6 +589,30 @@
           "lib/net6.0/MySqlConnector.dll": {}
         }
       },
+      "NAudio.Core/2.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/NAudio.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/NAudio.Core.dll": {}
+        }
+      },
+      "NAudio.Lame/2.0.1": {
+        "type": "package",
+        "dependencies": {
+          "NAudio.Core": "2.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/NAudio.Lame.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/NAudio.Lame.dll": {}
+        },
+        "build": {
+          "build/_._": {}
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
@@ -757,7 +781,8 @@
         "dependencies": {
           "BCrypt.Net-Next": "4.0.3",
           "CrossLang.Models": "1.0.0",
-          "Microsoft.AspNetCore.Http.Abstractions": "2.2.0"
+          "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
+          "NAudio.Lame": "2.0.1"
         },
         "compile": {
           "bin/placeholder/CrossLang.Library.dll": {}
@@ -1673,6 +1698,36 @@
         "logo.png",
         "mysqlconnector.2.1.10.nupkg.sha512",
         "mysqlconnector.nuspec"
+      ]
+    },
+    "NAudio.Core/2.0.0": {
+      "sha512": "knmGOIYbzn9ZGkFcVs5d3zEYvi50jVriyEirVtAHjkcDoo2ziK32bZb7KkFARLD4lhCGkqp6uT0+0fc4JIfQcw==",
+      "type": "package",
+      "path": "naudio.core/2.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/NAudio.Core.dll",
+        "naudio-icon.png",
+        "naudio.core.2.0.0.nupkg.sha512",
+        "naudio.core.nuspec"
+      ]
+    },
+    "NAudio.Lame/2.0.1": {
+      "sha512": "MhVKOsKFCo9o/ghReT7x0dOKILPRN3crZjBP85vz02jfDeFPmSGXGdNIXN0FYIPDKH7irFcI9q0IeYlXQwJfaQ==",
+      "type": "package",
+      "path": "naudio.lame/2.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "build/NAudio.Lame.targets",
+        "build/libmp3lame.32.dll",
+        "build/libmp3lame.64.dll",
+        "lib/netstandard2.0/NAudio.Lame.dll",
+        "lib/netstandard2.0/NAudio.Lame.pdb",
+        "naudio.lame.2.0.1.nupkg.sha512",
+        "naudio.lame.nuspec"
       ]
     },
     "Newtonsoft.Json/13.0.1": {

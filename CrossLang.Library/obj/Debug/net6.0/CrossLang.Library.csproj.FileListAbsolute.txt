@@ -43,3 +43,5 @@ D:/Classes/Thesis/CrossLang/cross-lang-server/CrossLang.Library/bin/Debug/net6.0
 /Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.Library/obj/Debug/net6.0/refint/CrossLang.Library.dll
 /Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.Library/obj/Debug/net6.0/CrossLang.Library.pdb
 /Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.Library/obj/Debug/net6.0/ref/CrossLang.Library.dll
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.Library/bin/Debug/net6.0/libmp3lame.32.dll
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.Library/bin/Debug/net6.0/libmp3lame.64.dll

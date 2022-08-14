@@ -249,3 +249,7 @@ D:/Classes/Thesis/CrossLang/cross-lang-server/CrossLang.API/bin/Debug/net6.0/Cro
 /Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.API/obj/Debug/net6.0/ref/CrossLang.API.dll
 /Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.API/bin/Debug/net6.0/CrossLang.DBHelper.dll
 /Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.API/bin/Debug/net6.0/CrossLang.DBHelper.pdb
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.API/bin/Debug/net6.0/libmp3lame.32.dll
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.API/bin/Debug/net6.0/libmp3lame.64.dll
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.API/bin/Debug/net6.0/NAudio.Core.dll
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.API/bin/Debug/net6.0/NAudio.Lame.dll

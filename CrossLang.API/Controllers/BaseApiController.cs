@@ -75,7 +75,7 @@ namespace CrossLang.API.Controllers
         /// CREATED_BY: vmhoang
         [HttpGet("details/{id}")]
         [Authorize]
-        async public Task<IActionResult> GetDeatails(long id)
+        async virtual public Task<IActionResult> GetDeatails(long id)
         {
             var res = _service.GetDetailsById(id);
 

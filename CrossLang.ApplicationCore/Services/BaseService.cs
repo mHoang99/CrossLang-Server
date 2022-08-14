@@ -514,9 +514,8 @@ namespace CrossLang.ApplicationCore
         /// <returns></returns>
         public virtual ServiceResult QueryList(T entity, List<FilterObject> filters, string formula, string sortBy = "ModifiedDate", string sortDirection = "desc", int pageNum = 1, int pageSize = 10)
         {
-            List<T> list = this._repository.QueryList(entity, filters, formula, sortBy, sortDirection, pageNum, pageSize);
+            var (list, dbCount) = this._repository.QueryList(entity, filters, formula, sortBy, sortDirection, pageNum, pageSize);
 
-            long dbCount = this._repository.QueryListCount(entity, filters, formula);
 
             serviceResult.SuccessState = true;
             serviceResult.Data = new
@@ -540,9 +539,7 @@ namespace CrossLang.ApplicationCore
         /// <returns></returns>
         public ServiceResult QueryListByView(string viewName, T entity, List<FilterObject> filters, string formula, string sortBy = "ModifiedDate", string sortDirection = "desc", int pageNum = 1, int pageSize = 10)
         {
-            List<dynamic> list = this._repository.QueryListByView(viewName, entity, filters, formula, sortBy, sortDirection, pageNum, pageSize);
-
-            long dbCount = this._repository.QueryListCount(entity, filters, formula);
+            var (list, dbCount) = this._repository.QueryListByView(viewName, entity, filters, formula, sortBy, sortDirection, pageNum, pageSize);
 
             serviceResult.SuccessState = true;
             serviceResult.Data = new
@@ -589,7 +586,7 @@ namespace CrossLang.ApplicationCore
 
         protected virtual void BeforeMassAdd(ref List<T> entities)
         {
-            
+
         }
 
 
@@ -602,7 +599,7 @@ namespace CrossLang.ApplicationCore
                 return serviceResult;
             }
 
-            if(!fields.Exists(x => { return x.Equals("ModifiedDate"); }))
+            if (!fields.Exists(x => { return x.Equals("ModifiedDate"); }))
             {
                 fields.Add("ModifiedDate");
                 entity.ModifiedDate = DateTime.Now;

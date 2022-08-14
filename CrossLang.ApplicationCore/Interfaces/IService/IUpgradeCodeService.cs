@@ -9,6 +9,7 @@ namespace CrossLang.ApplicationCore.Interfaces.IService
     {
         ServiceResult GenerateCode(PackageEnum package, long? period, bool? isTrial, long? price);
         ServiceResult RedeemCode(string? code);
+        ServiceResult ValidateCode(string? code);
     }
 }
 

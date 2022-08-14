@@ -1,0 +1,52 @@
+﻿<Properties StartupConfiguration="{6A43B505-D810-4C38-8BC8-46B4D6FD3F8F}|Default">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Crosslang.Worker.Notification PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Program.cs">
+    <Files>
+      <File FileName="appsettings.json" Line="16" Column="4" />
+      <File FileName="Program.cs" Line="24" Column="1" />
+      <File FileName="Jobs/SyncJob.cs" Line="47" Column="14" />
+      <File FileName="Services/INotificationService.cs" Line="6" Column="44" />
+      <File FileName="Services/NotificationService.cs" Line="9" Column="49" />
+      <File FileName="../../CrossLang.Models/EmailMessage.cs" Line="1" Column="1" />
+      <File FileName="../../CrossLang.Models/NotificationMessage.cs" Line="6" Column="22" />
+      <File FileName="../../CrossLang.Models/Enums.cs" Line="4" Column="5" />
+      <File FileName="../../CrossLang.Library/CLHelper.cs" Line="74" Column="25" />
+      <File FileName="../../CrossLang.QueueHelper/RabbitMQMessage.cs" Line="3" Column="18" />
+      <File FileName="Worker.cs" Line="4" Column="1" />
+      <File FileName="Hubs/NotificationHub.cs" Line="13" Column="2" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Crosslang.Worker.Notification" expanded="True">
+            <Node name="CrossLang.Authentication" expanded="True" />
+            <Node name="CrossLang.Library" expanded="True" />
+            <Node name="CrossLang.Models" expanded="True" />
+            <Node name="CrossLang.QueueHelper" expanded="True" />
+            <Node name="Crosslang.Worker.Notification" expanded="True">
+              <Node name="Dependencies" expanded="True">
+                <Node name="PackageDependencies" expanded="True" />
+              </Node>
+              <Node name="Hubs" expanded="True" />
+              <Node name="Jobs" expanded="True" />
+              <Node name="Services" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/Workers/Crosslang.Worker.Notification/Jobs/SyncJob.cs" relfile="Jobs/SyncJob.cs" line="30" column="1" />
+      <Breakpoint file="/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/Workers/Crosslang.Worker.Notification/Jobs/SyncJob.cs" relfile="Jobs/SyncJob.cs" line="27" column="1" />
+      <Breakpoint file="/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/Workers/Crosslang.Worker.Notification/Worker.cs" relfile="Worker.cs" line="21" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

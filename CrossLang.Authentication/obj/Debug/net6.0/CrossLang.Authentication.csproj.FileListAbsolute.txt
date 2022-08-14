@@ -65,3 +65,5 @@ D:/Classes/Thesis/CrossLang/cross-lang-server/CrossLang.Authentication/bin/Debug
 /Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.Authentication/obj/Debug/net6.0/ref/CrossLang.Authentication.dll
 /Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.Authentication/bin/Debug/net6.0/CrossLang.DBHelper.dll
 /Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.Authentication/bin/Debug/net6.0/CrossLang.DBHelper.pdb
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.Authentication/bin/Debug/net6.0/libmp3lame.32.dll
+/Users/mhoang/Documents/Projects/CrossLang/cross-lang-server/CrossLang.Authentication/bin/Debug/net6.0/libmp3lame.64.dll

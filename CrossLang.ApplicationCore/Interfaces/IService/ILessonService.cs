@@ -9,7 +9,7 @@ namespace CrossLang.ApplicationCore.Interfaces.IService
         ServiceResult GetAttempHistory(long id);
         ServiceResult FinishLesson(Lesson entity);
         ServiceResult GetLearningLessonList();
-        ServiceResult GetLessonList(Lesson entity, List<FilterObject> filters, string formula, string sortBy, string sortDirection, int pageNum, int pageSize);
+        ServiceResult GetLessonList(Lesson entity, List<FilterObject> filters, string formula, string sortBy, string sortDirection, int pageNum, int pageSize, bool isRelatedToUser);
     }
 }
 

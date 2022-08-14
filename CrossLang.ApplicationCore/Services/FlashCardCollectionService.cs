@@ -35,9 +35,7 @@ namespace CrossLang.ApplicationCore.Services
 
         public ServiceResult GetListCollection(FlashCardCollection entity, List<FilterObject> filters, string formula , int pageNum, int pageSize)
         {
-            var list = this._repository.QueryList(entity, filters, formula, "ModifiedDate", "desc", pageNum, pageSize);
-
-            long dbCount = this._repository.QueryListCount(entity, filters, formula);
+            var (list, dbCount) = this._repository.QueryListByView("view_flash_card_collection", entity, filters, formula, "ModifiedDate", "desc", pageNum, pageSize);
 
             serviceResult.SuccessState = true;
             serviceResult.Data = new

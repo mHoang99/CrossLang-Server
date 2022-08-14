@@ -25,8 +25,8 @@ namespace CrossLang.Infrastructure
             "Proc_GetFlashCardCollectionDetails",
             new
             {
-                @ID = id,
-                @UserID = _sessionData.ID
+                v_ID = id,
+                v_UserID = _sessionData.ID
             }, commandType: CommandType.StoredProcedure
             ))
             {

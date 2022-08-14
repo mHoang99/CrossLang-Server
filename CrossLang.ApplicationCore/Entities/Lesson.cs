@@ -107,6 +107,21 @@ namespace CrossLang.ApplicationCore.Entities
             }
         }
 
+        [DisplayColumn]
+        [DisplayName("ID Bài tập")]
+        public long? ExerciseID { get; set; }
+
+        [DisplayColumn]
+        [DisplayName("Đã có bài tập")]
+        public bool? HadExercise
+        {
+            get
+            {
+                return ExerciseID != null && ExerciseID > 0;
+            }
+        }
+
+
         [DBColumn]
         [DisplayColumn]
         [DisplayName("Gói")]
